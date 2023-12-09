@@ -148,6 +148,7 @@ export class AllStudentsComponent
     this.subs.sink = dialogRef.afterClosed().subscribe((result) => {
 
       this.refresh();
+      this.allStudentList()
 
       if (result === 1) {
         // After dialog is closed we're doing frontend updates
@@ -193,6 +194,7 @@ export class AllStudentsComponent
     this.subs.sink = dialogRef.afterClosed().subscribe((result) => {
 
       this.refresh();
+      this.allStudentList();
 
       if (result === 1) {
         // When using an edit things are little different, firstly we find record inside DataService by id

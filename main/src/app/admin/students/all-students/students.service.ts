@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { Students } from './students.model';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { UnsubscribeOnDestroyAdapter } from '@shared';
@@ -29,7 +29,7 @@ export class StudentsService extends UnsubscribeOnDestroyAdapter {
 
   studentNotesData!: studentNotes;
 
-
+  studentUserId!:number;
 
 
   studentUserName1!:string;
@@ -98,6 +98,7 @@ export class StudentsService extends UnsubscribeOnDestroyAdapter {
             this.studentUserName1=result.data[0].username;
 
             this.studentUserPassword=result.data[0].password;
+            this.studentUserId=result.data[0].userId;
             console.log(result.data[0])
 
           },
@@ -234,13 +235,36 @@ reloadStudentsList(){
 
 
 
+  updateStudentUserPassword(studentId: number, password:string): Observable<void> {
+    const data = { password: password };
+    console.log(studentId, password);
+
+    return this.httpClient.put<void>(`${this.API_URL}/updatePassword/${studentId}`, data)
+      .pipe(
+        tap(() => {
+          this.showSuccess()
+
+         
+        })
+      );
+  }
 
 
-  // getStudentNotesforTeacher(studentId: number): Observable<any> {
-  //   return this.httpClient.get<any>(`${this.API_URL}/studentNotes/${studentId}`);
-  // }
 
 
+
+
+
+  
+  showSuccess() {
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Your password has been updated',
+      showConfirmButton: false,
+      timer: 1000,
+    });
+  }
 
 
 }

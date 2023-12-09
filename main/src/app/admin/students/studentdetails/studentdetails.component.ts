@@ -8,7 +8,7 @@ import {DeleteAttendanceComponent} from'../delete-attendance/delete-attendance.c
 
 
 
-
+import {SettingService} from '../../adminsettings/setting.service'
 
 
 
@@ -59,8 +59,13 @@ userPassword:string | undefined;
 
 studentIdForStudentNotes!:number;
 
+studentUserId!:number;
+
+newPassword!:string;
+
 studentUserName:string | undefined;
 studentUserPassword:string | undefined;
+
   studentNotes: any[]=[]
 // user:string | undefined;
 // userName:string | undefined;
@@ -95,6 +100,7 @@ panelOpenState = false;
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
     public studentsService: StudentsService,
     private authService: AuthService,
+    private settingService:SettingService,
 
 
 
@@ -114,9 +120,13 @@ panelOpenState = false;
     this.userPassword =this.authService.currentUserValue.password;
     this.userId=this.authService.currentUserValue.id
 
+    
+
     this.studentUserName=this.studentsService.studentUserName1;
     this.studentUserPassword=this.studentsService.studentUserPassword;
+    this.studentUserId=this.studentsService.studentUserId;
 
+    console.log(this.studentUserPassword)
     this.getAllCoursesByStudentId();
 
 
@@ -257,7 +267,23 @@ sendEmail(email:string){this.authService.sendEmail(email);}
 
 
 
+async updateStudentPassword(studentUserId: number, newPassword: string): Promise<void> {
+  try {
+    await this.studentsService.updateStudentUserPassword(studentUserId, newPassword,).toPromise();
 
+    
+  
+
+  } catch (error) {
+    console.error('Error updating password:', error);
+  }
+}
+
+
+
+isNewPasswordValid(): boolean {
+  return !!this.newPassword && this.newPassword.length >= 6 && /^\S+$/.test(this.newPassword);
+}
 
 
 

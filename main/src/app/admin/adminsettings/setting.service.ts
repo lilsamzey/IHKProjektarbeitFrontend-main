@@ -66,11 +66,7 @@ export class SettingService {
         tap(() => {
           this.showSuccess()
 
-          //activity log
-          this.authService.addActivityLog(
-            this.authService.currentUserValue.id,
-            'Student Password Updating',
-            `Student ${teacher} updated his/her password. Students' userId=${userId}, New Password=${password}`);
+          
         })
       );
   }

@@ -44,7 +44,7 @@
           <mat-tab-group mat-align-tabs="start">
             <mat-tab label="About">
               <div class="p-4">
-                <p class="text-default">Hello I am Sarah Smith a student in Sanjivni College Surat. I love
+                <p class="text-default">Hello I am  <span class="badge bg-primary">{{data.student.firstName}} {{data.student.lastName}}</span>   a student in Monde Coding School. I love
                   to study with all my class friends and professors.</p>
                 <ul class="list-group list-group-unbordered">
                   <li class="list-group-item">
@@ -136,51 +136,17 @@
 
                       </div>
                     </div>
-                    <p class="m-t-30">Open after rule place He earth earth good called days unto
-                      which wherein day doesn't said day image
-                      signs fish days forth for evening whose his make his bearing
-                      years gathering good brought without.</p>
-                    <p>Years living creepeth. Form them yielding behold greater
-                      divided void was fowl earth in. Spirit Bring
-                      grass they're you have shall years so morning. Grass
-                      gathering won't heaven set greater darkness forth
-                      abundantly he.</p>
-                    <p>Isn't hath, forth. Brought sea subdue, from divided replenish
-                      creature after creeping abundantly fly
-                      is cattle fill were years years may darkness blessed which
-                      land creepeth good moving good. Life living
-                      you're.</p>
+                    <h2 class="m-t-30" style="color:red;">Alle anderen Informationen/Komponenten über den Schüler können hier hinzugefügt werden.</h2>
+                    <p>Die Kurse, an denen der Schüler teilgenommen hat;</p>
+                    <p>Kursanwesenheiten</p>
+                    <p>Lehrernotizen über den Schüler:</p>
+                    <p>Verwaltungsnotizen über den Schüler;</p>
+                    <p>usw</p>
                     <br>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-12 col-md-12 col-sm-12">
-                <div class="project_widget">
-                  <div class="header">
-                    <h2><strong>Education</strong></h2>
-                  </div>
-                  <div class="body">
-                    <ul>
-                      <li>Schooling at sarvoday vidhyalay, Mumbai</li>
-                      <li>Betchler In Arts in Bhagvati College Hariyana</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-12 col-md-12 col-sm-12">
-                <div class="project_widget">
-                  <div class="header">
-                    <h2><strong>Certificates</strong></h2>
-                  </div>
-                  <div class="body">
-                    <ul>
-                      <li>1st Prise in Music competition</li>
-                      <li>1st Prise in Acting & Drama</li>
-                      <li>Gold Medal in Betchler in Arts</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+              
             </mat-tab>
 
 
@@ -190,7 +156,7 @@
 
 
 
-            <mat-tab>
+            <!-- <mat-tab>
               <ng-template mat-tab-label>
 
                 <app-feather-icons [icon]="'edit'" [class]="'tbl-fav-edit msr-2'"></app-feather-icons>
@@ -206,7 +172,7 @@
 
                 </div>
               </div>
-            </mat-tab>
+            </mat-tab> -->
 
 
 
@@ -237,11 +203,17 @@
                   </mat-form-field>
                   <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>New Password</mat-label>
-                    <input matInput >
+                    <input matInput [(ngModel)]="newPassword"> 
                   </mat-form-field>
 
                 </div>
-                <button mat-raised-button color="primary">Save</button>
+                
+                <div>
+                  <p>When you enter your new password, the save button becomes active.</p>
+                  <button mat-raised-button color="primary" [disabled]="!newPassword || !isNewPasswordValid()"
+                  (click)="updateStudentPassword(studentUserId, newPassword)">Save
+                  </button>
+                </div>
               </div>
 
               <div class="header">
@@ -348,7 +320,7 @@
 
 
 
-  <div class="body">
+  <!-- <div class="body">
 
 
     <div class="card">
@@ -364,7 +336,7 @@
             <th >Course Number</th>
             <th >Course Name</th>
             <th>Length</th>
-            <!-- <th>Course Info</th> -->
+            
             <th>Attandance</th>
             <th>Edit</th>
             <th>Delete</th>
@@ -393,8 +365,7 @@
                   <td style="width: 20%; text-align: left; " >{{course.courseName}}</td>
                   <td style="width: 20%; text-align: left; ">{{course.length}}</td>
                  <td style="width: 20%; text-align: left;"><span class="badge bg-blue">Attandance Of {{data.student.firstName}}</span></td>
-                  <!-- <td> <button mat-flat-button (click)="getAttendanceByCourseIdAndStudentId(course.CourseId)" ><span class="badge bg-pink" >Attandance Details</span></button></td> -->
-              </tr>
+                 </tr>
           </tbody>
 
             </table>
@@ -439,8 +410,7 @@
               <td >{{attandance.Explaining}}</td>
 
 
-              <!-- <button mat-raised-button color="primary" (click)="showCustomPosition()">CLICK
-                ME</button> -->
+             
               <td><span class=" btn badge bg-red" (click)="deleteAttendance(attandance)">Delete</span></td>
             </tr>
           </tbody>
@@ -471,6 +441,6 @@
 
 
 
-  <div style="height: 400px; background-color: rgb(244, 241, 241);"></div>
+  <div style="height: 400px; background-color: rgb(244, 241, 241);"></div> -->
 
 </section>
