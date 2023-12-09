@@ -1,0 +1,55 @@
+
+<div >
+  <div class="content-block">
+
+
+
+
+
+
+    <app-coursefileupload [courseId]="courseId"></app-coursefileupload>
+
+
+                <div class="card">
+                  <div class="header">
+                    <h2>Documents</h2>
+                  </div>
+                  <div class="body table-responsive" style="max-height: 500px;">
+                    <table class="table" >
+                      <thead>
+                        <tr>
+                          <th>File Nr.</th>
+                          <th>File Name</th>
+                          <th>Type</th>
+                          <th>Size</th>
+                          <th>Upload Date</th>
+                          <th>User</th>
+                          <th>Course Nr</th>
+                          <th>Download</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let file of files" >
+                          <!-- Sadece file.CourseId ile course.CourseId eşitse dosyayı listeleyin -->
+                          <ng-container *ngIf="file.CourseId === courseId">
+                            <td scope="row"><button mat-icon-button class="tbl-action-btn"  (click)="downloadFile(file)">
+                              <app-feather-icons [icon]="'file-text'" [class]="'tbl-fav-edit'"></app-feather-icons>
+                            </button></td>
+                            <td>{{ file.fileName }}</td>
+                            <td>{{ file.fileType }}</td>
+                            <td>{{ (file.fileSize/1048576).toFixed(1) }} Mb</td>
+                            <td>{{ file.uploadedAt | date:'shortDate'}}</td>
+                            <td>{{ file.userId }}</td>
+                            <td>{{ file.CourseId }}</td>
+                            <td class="btn" (click)="downloadFile(file)">
+                              <span class="badge bg-cyan">Download</span>
+                            </td>
+                          </ng-container>
+                        </tr>
+                      </tbody>
+                      </table>
+
+                    </div></div>
+  </div></div>
+
+

@@ -1,0 +1,123 @@
+<div class="addContainer">
+  <div class="modalHeader">
+    <div class="editRowModal">
+      <div class="modalHeader clearfix">
+
+        <div class="modal-about">
+          <!-- {{dialogTitle}} -->
+        </div>
+      </div>
+    </div>
+    <!-- <button mat-icon-button (click)="dialogRef.close()" class="modal-close-button" aria-label="Close dialog">
+      <mat-icon>close</mat-icon>
+    </button> -->
+  </div>
+  <div mat-dialog-content>
+
+    <form class="m-4" [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Course name</mat-label>
+            <input matInput formControlName="courseName" required>
+            <mat-error *ngIf="courseForm.get('courseName')?.hasError('required')">
+              Course name is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Course code</mat-label>
+            <input matInput formControlName="courseCode">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Course Details</mat-label>
+            <textarea matInput formControlName="courseDetails" required></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Start Date</mat-label>
+            <input matInput [matDatepicker]="rpicker" formControlName="startDate" required>
+            <mat-datepicker-toggle matSuffix [for]="rpicker"></mat-datepicker-toggle>
+            <mat-datepicker #rpicker></mat-datepicker>
+            <mat-error *ngIf="courseForm.get('startDate')?.hasError('required')">
+              Please select date
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Course Time Length</mat-label>
+            <input matInput formControlName="length" type="number">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Course Price</mat-label>
+            <input matInput formControlName="price" type="number" required>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Professor Name</mat-label>
+            <mat-select formControlName="teacher" required>
+              <mat-option [value]="1">
+                Pr. Jayesh Patel
+              </mat-option>
+              <mat-option [value]="2">
+                Pr. Salini Parmar
+              </mat-option>
+              <mat-option [value]="3">
+                Pr. Mayank Trivedi
+              </mat-option>
+              <mat-option [value]="4">
+                Pr. Parit Varma
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="courseForm.get('teacher')?.hasError('required')">
+              Select any professor
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Maximum Students Lenght</mat-label>
+            <input matInput formControlName="studentsNumber" type="number" required>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Contact Number</mat-label>
+            <input matInput formControlName="contactNumber" type="number" required>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-5">
+          <label>Upload</label>
+          <app-file-upload formControlName="uploadFile"></app-file-upload>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+          <button class="btn-space" [disabled]="!courseForm.valid " mat-raised-button
+            color="primary">Submit</button>
+          <button type="button" mat-raised-button color="warn">Cancel</button>
+        </div>
+      </div>
+    </form>
+
+
+  </div>
+</div>

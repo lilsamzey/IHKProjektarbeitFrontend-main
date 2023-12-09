@@ -1,0 +1,186 @@
+<section style="height: 90vh; padding: 3%;">
+  <div class="content-block">
+    <!-- <div class="block-header" *ngFor="let breadscrum of breadscrums">
+
+
+      <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active"></app-breadcrumb>
+    </div> -->
+    <!-- Your content goes here  -->
+    <div class="row clearfix" *ngIf="adminInfo.length> 0">
+      <div class="col-lg-4 col-md-12">
+        <div class="card">
+          <div class="m-b-20">
+            <div class="contact-grid">
+              <div class="profile-header bg-pink">
+                <div class="user-name">{{adminInfo[0].firstName}} {{adminInfo[0].lastName}} </div> <br><br>
+                <div class="name-center">ADMIN</div>
+              </div>
+              <!-- //<img src="assets/images/user/usrbig4.jpg" class="user-img" alt=""> -->
+              <br><br>
+              <!-- <p>
+                {{adminInfo[0].address}}
+                <br />
+              </p> -->
+              <div>
+                <!-- <span class="phone">
+                  <i class="material-icons">phone</i>{{adminInfo[0].mobile}}</span> -->
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <mat-tab-group mat-align-tabs="start">
+            <mat-tab label="About">
+              <div class="p-4">
+                <p class="text-default"></p>
+                <small class="text-muted">Email address: </small> <br>
+                <p class="btn" (click)="sendEmail(adminInfo[0].email)"> <span class="badge bg-success">{{adminInfo[0].email}}</span></p>
+                
+                <!-- <small class="text-muted">Phone: </small> <br>
+                <p>Admin Nr: {{adminInfo[0].adminId}} <br> </p> -->
+               
+              </div>
+            </mat-tab>
+
+          </mat-tab-group>
+        </div>
+      </div>
+
+      <div class="col-lg-8 col-md-12">
+        <div class="card">
+          <mat-tab-group>
+
+
+
+
+
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon msr-2">settings</mat-icon>
+                Settings
+              </ng-template>
+              <div class="header">
+                <h2>
+                  <strong>Security</strong> Settings</h2>
+              </div>
+
+              <div class="body">
+                <div class="example-container">
+
+                  <!-- <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Username</mat-label>
+                    <input matInput [(ngModel)]="settingsInfo[0].username">
+
+
+                  </mat-form-field> -->
+                  <p>Username</p>
+                  <h5> {{adminInfo[0].username}}</h5><br>
+
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Current Password</mat-label>
+                    <input matInput [(ngModel)]="adminInfo[0].password">
+                  </mat-form-field>
+
+
+                  <div *ngIf="!newPassword || !isNewPasswordValid()" class="password-hint" style="color:red;">
+                    Password must be at least 6 characters, and one word.
+                  </div>
+                  <div *ngIf="newPassword && isNewPasswordValid()" class="password-success">
+                    Successful
+                  </div>
+
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>New Password</mat-label>
+                    <input matInput [(ngModel)]="newPassword" name="newPassword" required minlength="6" pattern="^\S+$">
+                  </mat-form-field>
+
+
+
+
+                  </div>
+
+                  <div>
+                    <p>When you enter your new password, the save button becomes active.</p>
+                    <button mat-raised-button color="primary" [disabled]="!newPassword || !isNewPasswordValid()"
+                            (click)="savePassword(adminInfo[0].userId, newPassword, adminInfo[0].firstName)">Save
+                    </button>
+                  </div>
+
+
+
+
+                </div>
+
+
+              <div class="header">
+                <h2>
+                  <strong>Account</strong> Info</h2>
+
+              </div>
+
+              <div class="body">
+                <p>Contact the administration to change your personal information. You cannot change it from here.</p>
+                <div class="row clearfix">
+                  <div class="col-lg-6 col-md-12">
+                    <div class="form-group">
+                      <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>First Name</mat-label>
+                        <input matInput [(ngModel)]="adminInfo[0].firstName">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-12">
+                    <div class="form-group">
+                      <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput [(ngModel)]="adminInfo[0].lastName">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <!-- <div class="col-lg-6 col-md-12">
+                    <div class="form-group">
+                      <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Mobile</mat-label>
+                        <input matInput [(ngModel)]="adminInfo[0].mobile">
+                      </mat-form-field>
+                    </div>
+                  </div> -->
+                  <div class="col-lg-6 col-md-12">
+                    <div class="form-group">
+                      <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Email</mat-label>
+                        <input matInput [(ngModel)]="adminInfo[0].email">
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <!-- <div class="col-md-12">
+                    <div class="form-group">
+                      <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Address</mat-label>
+                        <textarea matInput [(ngModel)]="adminInfo[0].address"></textarea>
+                      </mat-form-field>
+                    </div>
+                  </div> -->
+
+                  <div class="col-md-12">
+
+                  </div>
+                </div>
+              </div>
+            </mat-tab>
+
+
+
+
+
+
+
+          </mat-tab-group>
+        </div>
+      </div>
+    </div>
+    <div style="height: 200px;"></div>
+  </div>
+</section>

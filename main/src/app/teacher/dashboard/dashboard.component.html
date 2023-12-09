@@ -1,0 +1,559 @@
+<section class="content">
+  <div class="content-block">
+    <div class="block-header" *ngFor="let breadscrum of breadscrums">
+      <!-- breadcrumb -->
+      <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+      </app-breadcrumb>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
+        <div class="card info-box7 l-bg-purple order-info-box7" >
+          <div class="body">
+            <div class="row align-items-center">
+              <!-- <div class="col-md-4 mb-0">
+                <div class="recent-report__chart">
+                  <canvas baseChart height="200px" width="200px" class="chart" [data]="doughnutChartData"
+                    [labels]="doughnutChartLabels" [options]="doughnutChartOptions" [type]="doughnutChartType"></canvas>
+                </div>
+              </div> -->
+              <div class="col-md-12 col-white">
+                <h4>
+                  <div class="weight-600 "><h2>Hello, {{userName}}. This is your teacher dashboard.</h2></div>
+                </h4>
+                <p class="font-15 max-width-600">You have {{courses.length}} different courses. This tool provides easy access to all the data you could use to enhance student success.</p>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div><i class="fa fa-circle dot1 msr-2"></i> {{courses[0]?.courseName}} </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div *ngIf="courses[1]"><i class="fa fa-circle dot2 msr-2"></i> {{courses[1]?.courseName}} </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div *ngIf="courses[2]?.courseName"><i class="fa fa-circle dot3 msr-2"></i> {{courses[2]?.courseName}} </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div *ngIf="courses[3]?.courseName"><i class="fa fa-circle dot1 msr-2"></i> {{courses[3]?.courseName}} </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div *ngIf="courses[4]?.courseName"><i class="fa fa-circle dot2 msr-2"></i> {{courses[4]?.courseName}} </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div *ngIf="courses[5]?.courseName"><i class="fa fa-circle dot4 msr-2"></i> Others </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 ">
+        <div class="card ">
+          <div class="body">
+            <div class="row align-items-center">
+              <!-- <div class="col-md-4 mb-0">
+                <div class="recent-report__chart">
+                  <canvas baseChart height="200px" width="200px" class="chart" [data]="doughnutChartData"
+                    [labels]="doughnutChartLabels" [options]="doughnutChartOptions" [type]="doughnutChartType"></canvas>
+                </div>
+              </div> -->
+              <div class="col-md-12 ">
+                <h4>
+                  <div class="weight-600  pt-1">Why this teacher dashboard?</div>
+                </h4>
+                <p class="font-15 max-width-600">With this dashboard, you can elevate your digital interaction with your students, closely monitoring their progress and success.
+                  Our teacher panel is designed to save you time, allowing you to channel more energy into addressing the individual needs of your students and achieving excellence in education.
+                  Designed to keep you a step ahead in modern education, this tool provides easy access to all the data you could use to enhance student success.</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+
+
+
+    <div class="row">
+      <div class="col-lg-3 col-sm-6">
+        <div class="info-box7 l-bg-purple order-info-box7">
+          <div class="info-box7-block">
+            <h6 class="m-b-20">My Courses</h6>
+            <h2 class="text-end">
+              <div class="card-icon-only shadow-primary float-start">
+              <img src="assets/images/banner/img1.png" alt="">
+            </div>
+              <span>{{courses.length}}</span>
+            </h2>
+            <br>
+            <p class="m-b-0">18% Higher Then Last Month</p>
+          </div>
+        </div>
+      </div>
+
+
+
+        <div class="col-lg-3 col-sm-6">
+          <div class="info-box7 l-bg-green order-info-box7">
+            <div class="info-box7-block">
+              <h6 class="m-b-20">My Courses</h6>
+              <h2 class="text-end">
+                <div class="card-icon-only shadow-primary float-start">
+                <img src="assets/images/banner/img1.png" alt="">
+              </div>
+                <span>{{courses.length}}</span>
+              </h2>
+              <br>
+              <p class="m-b-0">18% Higher Then Last Month</p>
+            </div>
+          </div>
+        </div>
+
+
+
+          <div class="col-lg-3 col-sm-6">
+            <div class="info-box7 l-bg-orange order-info-box7">
+              <div class="info-box7-block">
+                <h6 class="m-b-20">My Courses</h6>
+                <h2 class="text-end">
+                  <div class="card-icon-only shadow-primary float-start">
+                  <img src="assets/images/banner/img1.png" alt="">
+                </div>
+                  <span>{{courses.length}}</span>
+                </h2>
+                <br>
+                <p class="m-b-0">18% Higher Then Last Month</p>
+              </div>
+            </div>
+          </div>
+
+
+            <div class="col-lg-3 col-sm-6">
+              <div class="info-box7 l-bg-blue order-info-box7">
+                <div class="info-box7-block">
+                  <h6 class="m-b-20">My Courses</h6>
+                  <h2 class="text-end">
+                    <div class="card-icon-only shadow-primary float-start">
+                    <img src="assets/images/banner/img1.png" alt="">
+                  </div>
+                    <span>{{courses.length}}</span>
+                  </h2>
+                  <br>
+                  <p class="m-b-0">18% Higher Then Last Month</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+      <!-- <div class="col-lg-2 col-sm-6">
+        <div class="info-box7 l-bg-blue order-info-box7">
+          <div class="info-box7-block">
+            <h6 class="m-b-20">Completed Orders</h6>
+            <h2 class="text-end"><i class="fas fa-business-time float-start"></i><span>865</span></h2>
+            <p class="m-b-0">21% Higher Then Last Month</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-sm-6">
+        <div class="info-box7 l-bg-green order-info-box7">
+          <div class="info-box7-block">
+            <h6 class="m-b-20">New Orders</h6>
+            <h2 class="text-end"><i class="fas fa-chart-line float-start"></i><span>128</span></h2>
+            <p class="m-b-0">37% Higher Then Last Month</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-sm-6">
+        <div class="info-box7 l-bg-orange order-info-box7">
+          <div class="info-box7-block">
+            <h6 class="m-b-20">Total Earning</h6>
+            <h2 class="text-end"><i class="fas fa-dollar-sign float-start"></i><span>$25698</span></h2>
+            <p class="m-b-0">10% Higher Then Last Month</p>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+
+
+
+
+
+
+
+
+
+<!--
+
+    <div class="row">
+      <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="float-start">
+              <h6 class="text-muted">Average Lecture Per Month</h6>
+              <h5>65 <span class="text-muted font-12">(Average)</span></h5>
+            </div>
+            <div class="mb-5">
+              <apx-chart [series]="avgLecChartOptions.series!" [chart]="avgLecChartOptions.chart!"
+                [xaxis]="avgLecChartOptions.xaxis!" [stroke]="avgLecChartOptions.stroke!"
+                [colors]="avgLecChartOptions.colors!" [dataLabels]="avgLecChartOptions.dataLabels!"
+                [legend]="avgLecChartOptions.legend!" [markers]="avgLecChartOptions.markers!"
+                [grid]="avgLecChartOptions.grid!" [yaxis]="avgLecChartOptions.yaxis!"
+                [tooltip]="avgLecChartOptions.tooltip!" [title]="avgLecChartOptions.title!"
+                [fill]="avgLecChartOptions.fill!">
+              </apx-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <div class="card">
+          <div class="header">
+            <h2>Subject Chart</h2>
+          </div>
+          <div class="body">
+            <div id="chart">
+              <apx-chart [series]="pieChartOptions.series!" [chart]="pieChartOptions.chart!"
+                [labels]="pieChartOptions.labels!" [responsive]="pieChartOptions.responsive!"
+                [dataLabels]="pieChartOptions.dataLabels!" [legend]="pieChartOptions.legend!" class="apex-pie-center">
+              </apx-chart>
+            </div>
+            <div class="table-responsive m-t-15">
+              <table class="table align-items-center">
+                <tbody>
+                  <tr>
+                    <td><i class="fa fa-circle col-cyan msr-2"></i> Music</td>
+                    <td>23</td>
+                    <td class="col-green">+32%</td>
+                  </tr>
+                  <tr>
+                    <td><i class="fa fa-circle col-blue msr-2"></i>Science</td>
+                    <td>32</td>
+                    <td class="col-green">+12%</td>
+                  </tr>
+                  <tr>
+                    <td><i class="fa fa-circle col-orange msr-2"></i>Economics</td>
+                    <td>12</td>
+                    <td class="col-orange">-12%</td>
+                  </tr>
+                  <tr>
+                    <td><i class="fa fa-circle col-green msr-2"></i>Mathes</td>
+                    <td>32</td>
+                    <td class="col-green">+3%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+
+
+
+
+
+
+
+
+    <div class="row clearfix">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+          <div class="header">
+            <h2>My Courses</h2>
+          </div>
+          <div class="body table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Course Number</th>
+                  <th>Course Name</th>
+                  <th>Start Date</th>
+                  <th>Length</th>
+                  <th>Course Info</th>
+                  <th>Course Details</th>
+
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let course of courses " class="btn-custom-hover" (click)="details(course)">
+                  <th scope="row">{{courses.indexOf(course)+1}}</th>
+                  <td>{{course.CourseId}}</td>
+                  <td>{{course.courseName}}</td>
+                  <td>{{course.startDate | date:'shortDate'}}</td>
+                  <td>{{course.length}}</td>
+                  <td>{{course.courseDetails}}</td>
+                  <td> <button mat-flat-button  (click)="details(course)"><span class="badge bg-pink" >DETAILS</span></button></td>
+
+                  </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+<!--
+
+    <div class="col-md-12">
+      <div class="card">
+        <div class="header">
+          <h2>My Courses</h2>
+
+
+        </div>
+
+        <div class="body">
+
+            <div class="row">
+            <div class="col-md-3" *ngFor="let item of courses " >
+              <div class="course-card course-card-blog">
+                <div class="course-card-image">
+                 <a class="btn"  style="padding:0px;" (click)="details(item)"> <img class="img" src="assets/images/banner/11.png" ></a>
+                </div>
+                <div class="blog-table">
+                  <div class="post-user mt-3">
+                    <span class="float-start msr-3">
+                      <img class="img-circle" src="assets/images/user/user1.jpg" alt="...">
+                    </span>
+                    <h6 class="mb-xs mt-xs"> {{item.courseName}}</h6>
+                    <p class="text-muted"> Course Id: {{item.CourseId}}</p>
+                  </div>
+                  <h6>{{item.teacher}}</h6>
+                  <p class="course-card-description">{{item.courseDetails}}</p>
+                  <div class="text-center mb-3">
+                    <button mat-raised-button color="primary" (click)="details(item)">Read More</button>
+                  </div>
+                  <div class="ftr">
+                    <div class="author">
+                      <a href="#"><span class="text-danger"><i class="fa fa-heart"></i>
+                          {{item.price}}</span></a>
+                    </div>
+                    <div class="stats"> <a href="#"><i class="far fa-comment-dots"></i>{{item.length}}</a> </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="row clearfix">
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <div class="card">
+          <div class="header">
+            <h2>Courses</h2>
+          </div>
+          <div class="body">
+            <div class="table-responsive">
+              <table class="table table-borderless medicine-list table-hover">
+                <!-- <tr class="mb-3" *ngFor="let course of courses">
+                  <td><i class="fas fa-microscope pill-style col-green"></i> {{ course.courseName }}</td>
+                  <td class="text-end">
+                    <span class="badge-outline">{{ getFileCountOfCourse(course.CourseId) | async }}</span>
+                  </td>
+                </tr> -->
+
+
+
+
+
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Course Number</th>
+                    <th>Course Name</th>
+
+
+
+                  </tr>
+                </thead>
+
+
+
+
+
+
+
+
+
+                 <tr *ngFor="let course of courses">
+                  <td>{{ courses.indexOf(course)+1}}</td>
+                  <td><i class="fas fa-palette pill-style col-indigo"></i> {{ course.courseName }}</td>
+                  <td class="text-end">
+                    <span class="badge-outline">{{ course.CourseId }}</span>
+                  </td>
+                </tr>
+                <!--<tr>
+                  <td><i class="fas fa-palette pill-style col-indigo"></i> Painting</td>
+                  <td class="text-end">
+                    <span class="badge-outline">M - - T - S</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><i class="fas fa-business-time pill-style col-orange"></i> Business Studies</td>
+                  <td class="text-end">
+                    <span class="badge-outline">M - W T - -</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><i class="fas fa-heart pill-style col-red"></i> Biology</td>
+                  <td class="text-end">
+                    <span class="badge-outline">M - W - F -</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><i class="fas fa-laptop-code pill-style col-purple"></i> Computer Studies</td>
+                  <td class="text-end">
+                    <span class="badge-outline">M - - T - S</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><i class="fas fa-globe-asia pill-style col-cyan"></i> Geography</td>
+                  <td class="text-end">
+                    <span class="badge-outline">M - W - F S</span>
+                  </td>
+                </tr> -->
+              </table>
+            </div>
+            <div class="text-center p-t-20">
+              <button mat-stroked-button color="primary">View More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+        <div class="card">
+          <div class="header">
+            <h2>
+              Today's Lecture</h2>
+          </div>
+          <div class="tableBody">
+            <div class="table-responsive">
+              <table class="table table-hover ">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Subject Name</th>
+                    <th>Standard</th>
+                    <th>Time</th>
+                    <th>Duration</th>
+                    <th>Details </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Business studies</td>
+                    <td>Standard 12</td>
+                    <td>10:30 AM</td>
+                    <td>45 Min</td>
+                    <td>
+                      <button mat-icon-button class="tbl-action-btn">
+                        <app-feather-icons [icon]="'file-text'" [class]="'tbl-fav-edit'"></app-feather-icons>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Chemistry</td>
+                    <td>Standard 11</td>
+                    <td>11:15 AM</td>
+                    <td>30 Min</td>
+                    <td>
+                      <button mat-icon-button class="tbl-action-btn">
+                        <app-feather-icons [icon]="'file-text'" [class]="'tbl-fav-edit'"></app-feather-icons>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Biology</td>
+                    <td>Standard 12</td>
+                    <td>12:00 AM</td>
+                    <td>35 Min</td>
+                    <td>
+                      <button mat-icon-button class="tbl-action-btn">
+                        <app-feather-icons [icon]="'file-text'" [class]="'tbl-fav-edit'"></app-feather-icons>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Physics</td>
+                    <td>Standard 11</td>
+                    <td>12:45 AM</td>
+                    <td>30 Min</td>
+                    <td>
+                      <button mat-icon-button class="tbl-action-btn">
+                        <app-feather-icons [icon]="'file-text'" [class]="'tbl-fav-edit'"></app-feather-icons>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>Music</td>
+                    <td>Standard 8</td>
+                    <td>02:00 AM</td>
+                    <td>45 Min</td>
+                    <td>
+                      <button mat-icon-button class="tbl-action-btn">
+                        <app-feather-icons [icon]="'file-text'" [class]="'tbl-fav-edit'"></app-feather-icons>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>Computer studies</td>
+                    <td>Standard 10</td>
+                    <td>03:30 AM</td>
+                    <td>35 Min</td>
+                    <td>
+                      <button mat-icon-button class="tbl-action-btn">
+                        <app-feather-icons [icon]="'file-text'" [class]="'tbl-fav-edit'"></app-feather-icons>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

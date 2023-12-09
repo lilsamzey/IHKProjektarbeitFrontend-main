@@ -1,0 +1,128 @@
+
+
+<div class="body">
+
+
+  <div class="card">
+    <div class="header">
+      <h2 class="badge badge-solid-green">Course's Attandance</h2>
+    </div>
+
+
+    <table class="table table-hover">
+      <thead >
+        <tr >
+          <th >#</th>
+          <th >Date</th>
+          <th >TeacherUserId</th>
+          <th>Total Student Count</th>
+          <!-- <th>Course Info</th> -->
+          <th>Attandance</th>
+          <th>Attendance Rate %</th>
+          <th>Details</th>
+
+
+
+        </tr>
+      </thead>
+      </table>
+  <mat-accordion class="example-headers-align">
+
+
+
+    <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(0)" hideToggle  *ngFor="let attendanceInfo of courseAttendanceInfo ">
+
+
+      <mat-expansion-panel-header class="btn" (click)="getAttendanceDetailsByDate(attendanceInfo.Date)">
+
+
+
+
+        <table class="table table-hover ">
+          <tbody>
+            <tr>
+                <td style="width: 1%; text-align: left; ">{{courseAttendanceInfo.indexOf(attendanceInfo)+1}}</td>
+                <td style="width: 10%; text-align: left; ">{{ attendanceInfo.Date | date: 'dd/MM/yyyy' }}</td>
+                <td style="width: 19%; text-align: left; " >{{attendanceInfo.TeacherUserID}}</td>
+                <td style="width: 25%; text-align: left; ">{{attendanceInfo.TotalStudents}}</td>
+                <td style="width: 15%; text-align: left; ">{{attendanceInfo.AttendingStudents}}</td>
+                <td style="width: 23%; text-align: left; ">
+
+                <div class="progress">
+                  <div [ngClass]="['progress-bar', 'width-per-' + (attendanceInfo.AttendanceRate)]" role="progressbar" aria-valuemin="0"
+                    aria-valuemax="100">{{ attendanceInfo.AttendanceRate }} %</div>
+                </div>
+
+              </td>
+               <td style="width: 20%; text-align: left;"><span class="btn badge bg-blue" (click)="getAttendanceDetailsByDate(attendanceInfo.Date)">Details </span></td>
+                <!-- <td> <button mat-flat-button (click)="getAttendanceByCourseIdAndStudentId(course.CourseId)" ><span class="badge bg-pink" >Attandance Details</span></button></td> -->
+            </tr>
+        </tbody>
+
+          </table>
+
+      </mat-expansion-panel-header>
+
+
+
+
+
+
+
+
+
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th  ><span class="badge badge-solid-red">Students Name </span></th>
+            <th><span class="badge badge-solid-red">Student Number</span></th>
+            <th><span class="badge bg-warning">Attendance % {{attendanceInfo.AttendanceRate}}</span></th>
+            <th><span class="badge badge-solid-green">Email</span></th>
+            <th><span class="badge badge-solid-red">Mobile</span></th>
+            <th><span class="badge badge-solid-green">Teachers Note</span></th>
+
+          </tr>
+        </thead>
+        <tbody *ngFor="let attandance of attendanceDetailsByDate">
+          <tr class="bg-light-blue">
+            <th scope="row">{{ attendanceDetailsByDate.indexOf(attandance) + 1 }}</th>
+            <td>{{ attandance.firstName }} {{ attandance.lastName }}</td>
+            <td>{{ attandance.StudentId  }}</td>
+            <td >
+             <span [ngClass]="{'badge badge-solid-green': attandance.Attendance, 'badge badge-solid-red': !attandance.Attendance}">{{ attandance.Attendance ? 'Attended' : 'Did not attend' }} </span>
+            </td>
+
+            <td >{{attandance.email}}</td>
+            <td >{{attandance.mobile}}</td>
+            <td >{{attandance.Explaining}}</td>
+
+
+
+            <!-- <button mat-raised-button color="primary" (click)="showCustomPosition()">CLICK
+              ME</button> -->
+            <!-- <td><span class=" btn badge bg-red" (click)="deleteAttendance(attandance)">Delete</span></td> -->
+          </tr>
+        </tbody>
+
+
+
+      </table>
+
+
+
+      </mat-expansion-panel>
+
+
+
+
+
+    </mat-accordion>
+    </div>
+
+
+
+  </div>
+
+
+

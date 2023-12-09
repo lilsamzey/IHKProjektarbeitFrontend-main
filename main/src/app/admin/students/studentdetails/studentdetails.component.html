@@ -1,0 +1,476 @@
+<section style="height: 90vh; padding: 3%;">
+  <div class="content-block">
+    <div class="block-header" *ngFor="let breadscrum of breadscrums">
+      <!-- breadcrumb -->
+      <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+      </app-breadcrumb>
+    </div>
+    <!-- Your content goes here  -->
+    <div class="row clearfix">
+      <div class="col-lg-4 col-md-12">
+        <div class="card">
+          <div class="m-b-20">
+            <div class="contact-grid">
+              <div class="profile-header bg-success">
+                <div class="user-name">{{data.student.firstName}} {{data.student.lastName}}  </div>
+                <!-- <div class="name-center">Computer Department</div> -->
+              </div>
+              <img src="assets/images/banner/example.jpg" class="user-img" alt="">
+              <p>{{data.student.address}}</p>
+
+              <div>
+                <span class="phone">
+                  <i class="material-icons">phone</i>{{data.student.mobile}} </span>
+              </div>
+              <!-- <div class="row">
+                <div class="col-4">
+                  <h5>564</h5>
+                  <small>Following</small>
+
+                </div>
+                <div class="col-4">
+                  <h5>18k</h5>
+                  <small>Followers</small>
+                </div>
+                <div class="col-4">
+                  <h5>565</h5>
+                  <small>Post</small>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <mat-tab-group mat-align-tabs="start">
+            <mat-tab label="About">
+              <div class="p-4">
+                <p class="text-default">Hello I am Sarah Smith a student in Sanjivni College Surat. I love
+                  to study with all my class friends and professors.</p>
+                <ul class="list-group list-group-unbordered">
+                  <li class="list-group-item">
+                    <b>Gender </b>
+                    <div class="profile-desc-item float-end">{{data.student.gender}} </div>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Student Number </b>
+                    <div class="profile-desc-item float-end">{{data.student.studentId}}</div>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Email </b>
+                    <div class=" profile-desc-item float-end" (click)="sendEmail(data.student.email)"> <span class="btn badge bg-success">{{data.student.email}}</span> </div>
+                   </li>
+                </ul>
+              </div>
+            </mat-tab>
+            <!-- <mat-tab label="Skills">
+              <ul class="list-unstyled p-4">
+                <li>
+                  <div>Study</div>
+                  <div class="progress skill-progress m-b-20">
+                    <div class="progress-bar l-bg-green width-per-45" role="progressbar" aria-valuenow="45"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </li>
+                <li>
+                  <div>Cricket</div>
+                  <div class="progress skill-progress m-b-20">
+                    <div class="progress-bar l-bg-orange width-per-38" role="progressbar" aria-valuenow="38"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </li>
+                <li>
+                  <div>Music</div>
+                  <div class="progress skill-progress m-b-20">
+                    <div class="progress-bar l-bg-cyan width-per-39" role="progressbar" aria-valuenow="39"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </li>
+                <li>
+                  <div>Yoga</div>
+                  <div class="progress skill-progress m-b-20">
+                    <div class="progress-bar l-bg-purple width-per-70" role="progressbar" aria-valuenow="70"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </li>
+              </ul>
+            </mat-tab> -->
+          </mat-tab-group>
+        </div>
+      </div>
+
+      <div class="col-lg-8 col-md-12">
+        <div class="card">
+          <mat-tab-group>
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon msr-2">face</mat-icon>
+                About Me
+              </ng-template>
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="project_widget">
+                  <div class="header">
+                    <h2><strong>About</strong></h2>
+                  </div>
+                  <div class="body">
+                    <div class="row">
+                      <div class="col-md-3 col-6 b-r">
+                        <strong>Full Name</strong>
+                        <br>
+                        <p class="text-muted">{{data.student.firstName}} {{data.student.lastName}}</p>
+                      </div>
+                      <div class="col-md-3 col-6 b-r">
+                        <strong>Mobile</strong>
+                        <br>
+                        <p class="text-muted">{{data.student.mobile}}</p>
+                      </div>
+                      <div class="col-md-3 col-6 b-r">
+                        <strong>Email</strong>
+                        <br>
+                        <p class="text-muted"> <span class="btn badge bg-success" (click)="sendEmail(data.student.email)">{{data.student.email}}</span></p>
+                      </div>
+                      <div class="col-md-3 col-6">
+                        <strong>Student Number</strong>
+                        <br>
+                        <p class="text-muted">{{data.student.studentId}}</p>
+
+
+                      </div>
+                    </div>
+                    <p class="m-t-30">Open after rule place He earth earth good called days unto
+                      which wherein day doesn't said day image
+                      signs fish days forth for evening whose his make his bearing
+                      years gathering good brought without.</p>
+                    <p>Years living creepeth. Form them yielding behold greater
+                      divided void was fowl earth in. Spirit Bring
+                      grass they're you have shall years so morning. Grass
+                      gathering won't heaven set greater darkness forth
+                      abundantly he.</p>
+                    <p>Isn't hath, forth. Brought sea subdue, from divided replenish
+                      creature after creeping abundantly fly
+                      is cattle fill were years years may darkness blessed which
+                      land creepeth good moving good. Life living
+                      you're.</p>
+                    <br>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="project_widget">
+                  <div class="header">
+                    <h2><strong>Education</strong></h2>
+                  </div>
+                  <div class="body">
+                    <ul>
+                      <li>Schooling at sarvoday vidhyalay, Mumbai</li>
+                      <li>Betchler In Arts in Bhagvati College Hariyana</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="project_widget">
+                  <div class="header">
+                    <h2><strong>Certificates</strong></h2>
+                  </div>
+                  <div class="body">
+                    <ul>
+                      <li>1st Prise in Music competition</li>
+                      <li>1st Prise in Acting & Drama</li>
+                      <li>Gold Medal in Betchler in Arts</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </mat-tab>
+
+
+
+
+
+
+
+
+            <mat-tab>
+              <ng-template mat-tab-label>
+
+                <app-feather-icons [icon]="'edit'" [class]="'tbl-fav-edit msr-2'"></app-feather-icons>
+                Notes
+              </ng-template>
+
+
+              <div class="body">
+                <div class="example-container">
+                  <app-studentnotes [studentNotes]="studentNotes" [studentId]="data.student.studentId"></app-studentnotes>
+
+
+
+                </div>
+              </div>
+            </mat-tab>
+
+
+
+
+
+            <!-- Settings -->
+
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon msr-2">settings</mat-icon>
+                Settings
+              </ng-template>
+              <div class="header">
+                <h2>
+                  <strong>Security</strong> Settings</h2>
+              </div>
+
+              <div class="body">
+                <div class="example-container">
+
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Username</mat-label>
+                    <input matInput [(ngModel)]="studentUserName">
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Current Password</mat-label>
+                    <input matInput [(ngModel)]="studentUserPassword">
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>New Password</mat-label>
+                    <input matInput >
+                  </mat-form-field>
+
+                </div>
+                <button mat-raised-button color="primary">Save</button>
+              </div>
+
+              <div class="header">
+                <h2>
+                  <strong>Account</strong> Settings</h2>
+              </div>
+              <div class="body">
+                <div class="row clearfix">
+                  <div class="col-lg-6 col-md-12">
+                    <div class="form-group">
+                      <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>First Name</mat-label>
+                        <input matInput [(ngModel)]="data.student.firstName">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-12">
+                    <div class="form-group">
+                      <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput [(ngModel)]="data.student.lastName">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-12">
+                    <div class="form-group">
+                      <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Mobile</mat-label>
+                        <input matInput [(ngModel)]="data.student.mobile">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-12">
+                    <div class="form-group">
+                      <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Email</mat-label>
+                        <input matInput [(ngModel)]="data.student.email">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <!-- <div class="col-lg-4 col-md-12">
+                    <div class="form-group">
+                      <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Country</mat-label>
+                        <input matInput>
+                      </mat-form-field>
+                    </div>
+                  </div> -->
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Address</mat-label>
+                        <textarea matInput [(ngModel)]="data.student.address"></textarea>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <!-- <div class="col-md-12">
+                    <div class="form-group">
+                      <mat-checkbox class="example-margin">Profile Visibility For Everyone
+                      </mat-checkbox>
+                    </div>
+                    <div class="form-group">
+                      <mat-checkbox class="example-margin">New task notifications
+                      </mat-checkbox>
+                    </div>
+                    <div class="form-group">
+                      <mat-checkbox class="example-margin">New friend request notifications
+                      </mat-checkbox>
+                    </div>
+                  </div> -->
+                  <div class="col-md-12">
+                    <button mat-raised-button color="primary" (click)="saveChanges(data.student.studentId, data.student)" >Save Changes</button>
+                  </div>
+                </div>
+              </div>
+            </mat-tab>
+
+
+
+
+
+
+          </mat-tab-group>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="body">
+
+
+    <div class="card">
+      <div class="header">
+        <h2 class="badge badge-solid-green">{{data.student.firstName}}'s Courses and Attandance</h2>
+      </div>
+
+
+      <table class="table table-hover">
+        <thead >
+          <tr >
+            <th >#</th>
+            <th >Course Number</th>
+            <th >Course Name</th>
+            <th>Length</th>
+            <!-- <th>Course Info</th> -->
+            <th>Attandance</th>
+            <th>Edit</th>
+            <th>Delete</th>
+
+
+          </tr>
+        </thead>
+        </table>
+    <mat-accordion class="example-headers-align">
+
+
+
+      <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(0)" hideToggle  *ngFor="let course of courses ">
+
+
+        <mat-expansion-panel-header class="btn" (click)="getAttendanceByCourseIdAndStudentId(course.CourseId)">
+
+
+
+
+          <table class="table table-hover ">
+            <tbody>
+              <tr>
+                  <td style="width: 4%; text-align: left; ">{{courses.indexOf(course)+1}}</td>
+                  <td style="width: 20%; text-align: left; ">{{course.CourseId}}</td>
+                  <td style="width: 20%; text-align: left; " >{{course.courseName}}</td>
+                  <td style="width: 20%; text-align: left; ">{{course.length}}</td>
+                 <td style="width: 20%; text-align: left;"><span class="badge bg-blue">Attandance Of {{data.student.firstName}}</span></td>
+                  <!-- <td> <button mat-flat-button (click)="getAttendanceByCourseIdAndStudentId(course.CourseId)" ><span class="badge bg-pink" >Attandance Details</span></button></td> -->
+              </tr>
+          </tbody>
+
+            </table>
+
+        </mat-expansion-panel-header>
+
+
+
+
+
+
+
+
+
+        <table class="table table-condensed">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th  ><span class="badge badge-solid-red">Course Name </span></th>
+              <th><span class="badge badge-solid-red">Lesson Date</span></th>
+              <th><span class="badge badge-solid-red">Attendance <span class="badge badge-solid-green">{{ calculateAttendancePercentage()}}%</span></span>
+
+
+                <div class="progress">
+                  <div [ngClass]="['progress-bar', 'width-per-' + (calculateAttendancePercentage())]" role="progressbar" aria-valuemin="0"
+                    aria-valuemax="100">{{ calculateAttendancePercentage()  }} %</div>
+                </div>
+
+
+
+              </th>
+              <th><span class="badge badge-solid-red">Teachers Note</span></th>
+
+            </tr>
+          </thead>
+          <tbody *ngFor="let attandance of studentCourseAttendance">
+            <tr class="bg-light-blue">
+              <th scope="row">{{ studentCourseAttendance.indexOf(attandance) + 1 }}</th>
+              <td>{{ course.courseName }}</td>
+              <td>{{ attandance.Date | date:'dd-MM-yyyy' }}</td>
+              <td>{{ attandance.Attendance ? 'Attended' : 'Did not attend' }}</td>
+              <td >{{attandance.Explaining}}</td>
+
+
+              <!-- <button mat-raised-button color="primary" (click)="showCustomPosition()">CLICK
+                ME</button> -->
+              <td><span class=" btn badge bg-red" (click)="deleteAttendance(attandance)">Delete</span></td>
+            </tr>
+          </tbody>
+
+
+
+        </table>
+
+
+
+        </mat-expansion-panel>
+
+
+
+
+
+      </mat-accordion>
+      </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+  <div style="height: 400px; background-color: rgb(244, 241, 241);"></div>
+
+</section>

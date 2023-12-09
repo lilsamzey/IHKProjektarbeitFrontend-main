@@ -1,0 +1,75 @@
+
+
+
+
+<div class="row clearfix">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="card">
+      <div class="header">
+        <h2>All Students List</h2>
+        <button mat-icon-button [matMenuTriggerFor]="menu" class="header-dropdown">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>add_circle_outline</mat-icon>
+            <span>Add</span>
+          </button>
+          <button mat-menu-item disabled>
+            <mat-icon>delete_outline</mat-icon>
+            <span>Delete</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>refresh</mat-icon>
+            <span>Refresh</span>
+          </button>
+        </mat-menu>
+      </div>
+      <div class="tableBody">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+              <th>Student Number</th>
+              <th>FIRST NAME</th>
+              <th>LAST NAME</th>
+              <th>E MAIL</th>
+              <th>GENDER</th>
+              <th>MOBILE</th>
+              <th>ADRESS</th>
+              <th>ACTION</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let student of allStudents">
+                <th scope="row">{{allStudents.indexOf(student)+1}}</th>
+                <td>{{student.studentId}}</td>
+                <td>{{student.firstName}}</td>
+                <td>{{student.lastName}}</td>
+                <td>{{student.email}}</td>
+                <td>{{student.gender}}</td>
+                <td>{{student.mobile}}</td>
+                <td>{{student.address}}</td>
+
+                 <td>
+                  <i class="far fa-file-pdf tbl-pdf"></i>
+                </td>
+                <td>
+                  <button mat-icon-button class="tbl-action-btn">
+                    <app-feather-icons [icon]="'edit'" [class]="'tbl-fav-edit'"></app-feather-icons>
+                  </button>
+                  <button mat-icon-button class="tbl-action-btn">
+                    <app-feather-icons [icon]="'trash-2'" [class]="'tbl-fav-delete'"></app-feather-icons>
+                  </button>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

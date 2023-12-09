@@ -1,0 +1,81 @@
+<section class="content" >
+  <div class="content-block">
+    <div class="block-header" *ngFor="let breadscrum of breadscrums">
+      <!-- breadcrumb -->
+      <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+      </app-breadcrumb>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+
+        <app-mailside></app-mailside>
+
+
+
+      </div>
+
+
+
+
+
+      <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+        <div class="card">
+          <div class="boxs mail_listing">
+            <div class="inbox-center table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th colspan="1">
+                      <div class="inbox-header">
+                        Compose New Message
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+            <div class="row">
+              <div class="col-lg-12">
+                <form class="composeForm">
+                  <div class="form-line">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>TO</mat-label>
+                      <input matInput id="email_address"  [(ngModel)]="ReceiverUserName" [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                  </div>
+
+                  <div class="form-line">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Subject</mat-label>
+                      <input matInput id="subject" [(ngModel)]="emailSubject" [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                  </div>
+                  <ckeditor [editor]="Editor" [(ngModel)]="editorContent" (change)="onEditorChange($event)" [ngModelOptions]="{standalone: true}"></ckeditor>
+
+                  <div class="compose-editor m-t-20">
+                    <div id="summernote"></div>
+                    <input type="file" class="default" multiple>
+                  </div>
+                </form>
+
+
+              </div>
+              <div class="col-lg-12">
+                <div class="m-l-25 m-b-20">
+                  <button mat-flat-button color="primary" class="msr-2" (click)="sendEmail()">Send</button>
+                  <button mat-flat-button color="warn"  (click)="discard()">Discard</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+    </div>
+  </div>
+</section>

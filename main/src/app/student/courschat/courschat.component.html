@@ -1,0 +1,78 @@
+<section >
+  <div class="content-block">
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <div class="card" >
+          <div class="body">
+
+            <div class="chat-message clearfix">
+              <div class="form-group">
+                <div class="form-line " >
+                  <mat-form-field class="example-full-width" >
+
+                    <textarea matInput placeholder="Enter text here.."  style="height: 300px;" [(ngModel)]="messageContent"></textarea>
+                    <button mat-mini-fab class="bg-deep-orange msr-2 float-end" *ngIf="!showButton"  (click)="sendMessage()"> SEND</button>
+                    <button  class="badge bg-success float-end" *ngIf="showButton" (click)="saveUpdatedMessage()" > UPDATE</button>
+                  </mat-form-field>
+
+
+
+
+                </div>
+              </div>
+              <!-- <div class="chat-upload">
+                <button mat-mini-fab class="bg-deep-orange msr-2"> <i class="material-icons">attach_file</i></button>
+                <button mat-mini-fab class="bg-deep-orange"> <i class="material-icons">insert_emoticon</i></button>
+              </div> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+        <div class="card" >
+          <div class="chat" >
+            <div class="chat-header clearfix" >
+
+              <div class="chat-about">
+
+                <div class="chat-num-messages">Total message : {{messages.length}}</div>
+              </div>
+            </div>
+
+
+            <div style="min-height: 600px;">
+
+
+              <ng-scrollbar style="min-height: 600px; margin: 1%;" class="chat-history" visibility="hover">
+                <div *ngFor="let message of messages" id="12">
+
+                  <div class="message-data" style="max-height: 10px;">
+                    <span class="badge col-orange">{{message.firstName}} {{message.lastName}}</span>
+                    <span class="message-data-time">{{message.timestamp | date:'short'}}</span>
+                  </div>
+
+                  <div [ngClass]="{'message': true, 'other-message': senderId === message.senderId, 'my-message': senderId !== message.senderId}">
+                    <p>{{message.messageContent}}
+                      <span *ngIf="senderId === message.senderId" class="float-end">
+                        <button class="badge bg-pink" (click)="deleteMessage(message)">Delete</button><button class="badge bg-success" (click)="updateMessage(message)">Update</button>
+                      </span>
+                    </p>
+                  </div>
+
+                </div>
+              </ng-scrollbar>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+

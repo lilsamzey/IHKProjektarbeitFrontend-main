@@ -1,0 +1,161 @@
+
+
+
+
+
+
+<div class="task-module">
+  <div class="task-header">
+    <div class="task-title">
+      <h3>Notes about Student</h3>
+
+  <div>
+
+
+
+
+
+  </div>
+      <!-- <h5>{{studentNotes.length}} Total Notes</h5> -->
+    </div>
+    <div class="header-button">
+      <button mat-raised-button color="primary" (click)="addNewTask(sidenav)">Add
+        Note</button>
+    </div>
+  </div>
+  <div class="row">
+
+
+
+
+
+      <mat-sidenav-container class="task-container" style="min-height: 600px;">
+
+
+
+
+
+        <mat-sidenav #sidenav [mode]="mode.value" position="end">
+          <div class="header">
+            <h2 class="header-title">{{dialogTitle}}</h2>
+            <div class="header-close m-l-0">
+              <button mat-icon-button *ngIf="!isNewNote" (click)="deleteNote(sidenav)"
+                matTooltip="Delete Task">
+                <mat-icon>delete</mat-icon>
+              </button>
+              <button mat-icon-button *ngIf="isNewNote" (click)="saveNewNote(sidenav)" matTooltip="Save Note">
+                <mat-icon>save</mat-icon>
+              </button>
+              <button mat-icon-button *ngIf="!isNewNote" (click)="saveEditedNote(sidenav)" matTooltip="Edit Note">
+                <mat-icon>save</mat-icon>
+              </button>
+              <button mat-icon-button (click)="closeSlider(sidenav)">
+                <mat-icon>close</mat-icon>
+              </button>
+            </div>
+
+          </div>
+
+
+
+          <form class="register-form m-4" [formGroup]="noteForm" >
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+            <div class="card">
+
+              <div class="body">
+                <div class="example-container">
+
+
+                  <br>
+                  <mat-form-field [hidden]="true">
+                    <input matInput formControlName="userId" [value]='userId'>
+                  </mat-form-field>
+                  <mat-form-field [hidden]="true">
+                    <input matInput formControlName="studentId" [value]='studentId'>
+                  </mat-form-field>
+
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Priority</mat-label>
+                    <mat-select matNativeControl required formControlName="priority">
+                      <mat-option value='Normal'>Normal</mat-option>
+                      <mat-option value="Low">Low</mat-option>
+                      <mat-option value="High">High</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <br>
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Note</mat-label>
+                    <textarea matInput formControlName="note" style="height: 300px;"></textarea>
+                  </mat-form-field>
+                  <button mat-raised-button color="accent" *ngIf="isNewNote" (click)="saveNewNote(sidenav)">Save</button>
+                  <button mat-raised-button color="accent" *ngIf="!isNewNote" (click)="saveEditedNote(sidenav)">Save</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+
+        </mat-sidenav>
+
+        <mat-sidenav-content style="width: auto;">
+
+            <div >
+
+              <div  *ngFor="let note of studentNotes"  >
+
+                <div class="task-box" *ngIf="note.AuthorID === userId">
+                <div>
+                  <div class="task-handle m-r-20" *ngIf="note.AuthorID !== userId">
+                    <span class="badge bg-success">{{studentNotes.indexOf(note)+1}}</span>
+                  </div>
+                </div>
+
+                <div class="task-custom-placeholder" *cdkDragPlaceholder></div>
+                <div matTooltip="Title" style="width: 80%" >
+                  {{note.NoteText}} <p style="font-size: 9px; color:red;">Author User Id: {{ note.AuthorID}} userid:  {{userId}} NoteId: {{note.NoteId}}</p> </div>
+                <div
+                  [ngClass]="{'task-low': note.Priority==='Low', 'task-high': note.Priority==='High','task-normal': note.Priority==='Normal'}">
+                  <mat-icon matTooltip="Low" aria-hidden="false" class="lbl-low"
+                    *ngIf="note?.Priority === 'Low'">arrow_downward
+                  </mat-icon>
+                  <mat-icon matTooltip="High" aria-hidden="false" class="lbl-high"
+                    *ngIf="note?.Priority === 'High'">arrow_upward
+                  </mat-icon>
+                  <mat-icon matTooltip="Normal" aria-hidden="false" class="lbl-normal"
+                    *ngIf="note?.Priority === 'Normal'">
+                    remove</mat-icon>
+                    <p matTooltip="Low" aria-hidden="false" class="lbl-normal"
+                    *ngIf="note?.Priority === 'null'"><mat-icon>remove</mat-icon>
+                </p>
+                  <div *ngIf="note?.Priority !== 'null'">
+                    {{note.Priority}}
+
+                  </div>
+
+
+                </div>
+                <button mat-flat-button  (click)="taskClick(note, sidenav)"><span class="badge bg-pink">Edit</span></button>
+                <div class="task-date" matTooltip="Due Date"> <span class="badge bg-success">{{ note.DateAdded | date }}</span></div>
+
+                <!-- <div class="task-date" matTooltip="Due Date"> <span class="badge bg-success">{{ task.AuthorID}}</span></div> -->
+
+              </div>
+              </div>
+            </div>
+
+        </mat-sidenav-content>
+
+
+
+
+      </mat-sidenav-container>
+
+  </div>
+
+
+
+
+</div>
+
+

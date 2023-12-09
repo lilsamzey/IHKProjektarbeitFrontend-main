@@ -1,0 +1,486 @@
+<section class="content">
+  <div class="content-block">
+    <div class="block-header" *ngFor="let breadscrum of breadscrums">
+      <!-- breadcrumb -->
+      <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+      </app-breadcrumb>
+    </div>
+    <!-- Widgets -->
+
+
+
+
+
+
+
+    <div class="row" >
+
+      <div class="col-lg-3 col-md-3 col-sm-12">
+
+        <div class="card card-statistic-2">
+          <div class="clearfix">
+            <div class="card-icon-only shadow-primary float-start">
+              <img src="assets/images/banner/img1.png" alt="">
+            </div>
+
+            <div class="card-right">
+              <div>
+                <h5 class="float-end">Total Students</h5>
+              </div>
+              <div class="col-green">
+                <h3 class="font-weight-bold float-end mb-0">{{allStudents.length}}</h3>
+              </div>
+            </div>
+          </div>
+          <div class="card-content msl-4 mb-3">
+            <p class="m-b-0 d-flex"><i class="material-icons col-green psr-2">trending_up</i> 10% Higher Then Last Month
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="card card-statistic-2">
+          <div class="clearfix">
+            <div class="card-icon-only shadow-primary float-start">
+              <img src="assets/images/banner/img2.png" alt="">
+            </div>
+            <div class="card-right">
+              <div>
+                <h5 class="float-end">Total Courses</h5>
+              </div>
+              <div class="col-green">
+                <h3 class="font-weight-bold float-end mb-0">{{allCourses.length}}</h3>
+              </div>
+            </div>
+          </div>
+          <div class="card-content msl-4 mb-3">
+            <p class="m-b-0 d-flex"><i class="material-icons col-orange psr-2">trending_down</i> 07% Less Then Last
+              Year
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="card card-statistic-2">
+          <div class="clearfix">
+            <div class="card-icon-only shadow-primary float-start">
+              <img src="assets/images/banner/img3.png" alt="">
+            </div>
+            <div class="card-right">
+              <div>
+                <h5 class="float-end">Total Teachers</h5>
+              </div>
+              <div class="col-green">
+                <h3 class="font-weight-bold float-end mb-0">{{allTeachers.length}}</h3>
+              </div>
+            </div>
+          </div>
+          <div class="card-content msl-4 mb-3">
+            <p class="m-b-0 d-flex"><i class="material-icons col-green psr-2">trending_up</i> 12% Higher Then Last Month
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="card card-statistic-2">
+          <div class="clearfix">
+            <div class="card-icon-only shadow-primary float-start">
+              <img src="assets/images/banner/img2.png" alt="">
+            </div>
+            <div class="card-right">
+              <div>
+                <h5 class="float-end">Total Admins</h5>
+              </div>
+              <div class="col-green">
+                <h3 class="font-weight-bold float-end mb-0">{{allAdmins.length}}</h3>
+              </div>
+            </div>
+          </div>
+          <div class="card-content msl-4 mb-3">
+            <p class="m-b-0 d-flex"><i class="material-icons col-orange psr-2">trending_down</i> 22% Less Then Last
+              Month
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- #END# Widgets -->
+    <div class="row">
+      <!-- <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+        <div class="card">
+          <div class="header">
+            <h2>
+              Students Survay</h2>
+            <button mat-icon-button [matMenuTriggerFor]="menu" class="header-dropdown">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <mat-icon>add_circle_outline</mat-icon>
+                <span>Add</span>
+              </button>
+              <button mat-menu-item disabled>
+                <mat-icon>delete_outline</mat-icon>
+                <span>Delete</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon>refresh</mat-icon>
+                <span>Refresh</span>
+              </button>
+            </mat-menu>
+          </div>
+          <div class="body">
+            <apx-chart [series]="areaChartOptions.series!" [chart]="areaChartOptions.chart!"
+              [xaxis]="areaChartOptions.xaxis!" [yaxis]="areaChartOptions.yaxis!" [colors]="areaChartOptions.colors!"
+              [stroke]="areaChartOptions.stroke!" [legend]="areaChartOptions.legend!" [grid]="areaChartOptions.grid!"
+              [tooltip]="areaChartOptions.tooltip!" [dataLabels]="areaChartOptions.dataLabels!"></apx-chart>
+          </div>
+        </div>
+      </div> -->
+      <!-- <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+        <div class="card">
+          <div class="header">
+            <h2>Student Performance Chart</h2>
+            <button mat-icon-button [matMenuTriggerFor]="menu" class="header-dropdown">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <mat-icon>add_circle_outline</mat-icon>
+                <span>Add</span>
+              </button>
+              <button mat-menu-item disabled>
+                <mat-icon>delete_outline</mat-icon>
+                <span>Delete</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon>refresh</mat-icon>
+                <span>Refresh</span>
+              </button>
+            </mat-menu>
+          </div>
+          <div class="body">
+            <apx-chart [series]="barChartOptions.series!" [chart]="barChartOptions.chart!"
+              [dataLabels]="barChartOptions.dataLabels!" [plotOptions]="barChartOptions.plotOptions!"
+              [grid]="barChartOptions.grid!" [yaxis]="barChartOptions.yaxis!" [xaxis]="barChartOptions.xaxis!"
+              [fill]="barChartOptions.fill!">
+            </apx-chart>
+          </div>
+        </div>
+      </div> -->
+    </div>
+
+
+    <app-coursescharts></app-coursescharts>
+
+
+
+
+
+    <div class="row clearfix">
+      <!-- <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <div class="card">
+          <div class="header">
+            <h2>
+              Exam Schedule
+            </h2>
+          </div>
+          <div class="card-body">
+            <ng-scrollbar style="height: 380px" visibility="hover">
+              <ul class="list-unstyled user-progress list-unstyled-border list-unstyled-noborder">
+                <li class="lecture-list">
+                  <div class="set-flex">
+                    <div class="media-title font-16">Standard 1</div>
+                  </div>
+                  <div class="ms-auto">
+                    <div class="media-title font-16">23-03-2022 | 28-03-2022</div>
+                  </div>
+                </li>
+                <li class="lecture-list">
+                  <div class="set-flex">
+                    <div class="media-title font-16">Standard 2</div>
+                  </div>
+                  <div class="ms-auto">
+                    <div class="media-title font-16">10-03-2022 | 15-03-2022</div>
+                  </div>
+                </li>
+                <li class="lecture-list">
+                  <div class="set-flex">
+                    <div class="media-title font-16">Standard 3</div>
+                  </div>
+                  <div class="ms-auto">
+                    <div class="media-title font-16">03-04-2022 | 10-04-2022</div>
+                  </div>
+                </li>
+                <li class="lecture-list">
+                  <div class="set-flex">
+                    <div class="media-title font-16">Standard 4</div>
+                  </div>
+                  <div class="ms-auto">
+                    <div class="media-title font-16">11-05-2022 | 15-05-2022</div>
+                  </div>
+                </li>
+                <li class="lecture-list">
+                  <div class="set-flex">
+                    <div class="media-title font-16">Standard 5</div>
+                  </div>
+                  <div class="ms-auto">
+                    <div class="media-title font-16">17-05-2022 | 21-05-2022</div>
+                  </div>
+                </li>
+                <li class="lecture-list">
+                  <div class="set-flex">
+                    <div class="media-title font-16">Standard 6</div>
+                  </div>
+                  <div class="ms-auto">
+                    <div class="media-title font-16">23-05-2022 | 28-05-2022</div>
+                  </div>
+                </li>
+                <li class="lecture-list">
+                  <div class="set-flex">
+                    <div class="media-title font-16">Standard 7</div>
+                  </div>
+                  <div class="ms-auto">
+                    <div class="media-title font-16">11-06-2022 | 15-06-2022</div>
+                  </div>
+                </li>
+              </ul>
+            </ng-scrollbar>
+          </div>
+        </div>
+      </div> -->
+      <!-- <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <div class="card">
+          <div class="header">
+            <h2>Average Class Attendance</h2>
+          </div>
+          <div class="float-start ms-3 me-3">
+            <h5>129 Students <span class="text-muted font-12">(Average)</span></h5>
+          </div>
+          <div class="body">
+            <apx-chart [series]="performanceRateChartOptions.series!" [chart]="performanceRateChartOptions.chart!"
+              [xaxis]="performanceRateChartOptions.xaxis!" [stroke]="performanceRateChartOptions.stroke!"
+              [colors]="performanceRateChartOptions.colors!" [dataLabels]="performanceRateChartOptions.dataLabels!"
+              [legend]="performanceRateChartOptions.legend!" [markers]="performanceRateChartOptions.markers!"
+              [grid]="performanceRateChartOptions.grid!" [yaxis]="performanceRateChartOptions.yaxis!"
+              [tooltip]="performanceRateChartOptions.tooltip!" [title]="performanceRateChartOptions.title!">
+            </apx-chart>
+          </div>
+        </div>
+      </div> -->
+      <!-- <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <div class="card">
+          <div class="header">
+            <h2>Obtain Marks Percentages</h2>
+          </div>
+          <div class="float-start ms-3 me-3">
+            <h5>129 Students <span class="text-muted font-12">(Average)</span></h5>
+          </div>
+          <div class="body">
+            <apx-chart [series]="polarChartOptions.series2!" [chart]="polarChartOptions.chart!"
+              [labels]="polarChartOptions.labels!" [title]="polarChartOptions.title!" [theme]="polarChartOptions.theme!"
+              [fill]="polarChartOptions.fill!" [yaxis]="polarChartOptions.yaxis!" [stroke]="polarChartOptions.stroke!"
+              [legend]="polarChartOptions.legend!" [plotOptions]="polarChartOptions.plotOptions!"
+              [colors]="polarChartOptions.colors!"></apx-chart>
+          </div>
+        </div>
+      </div> -->
+    </div>
+    <div class="row clearfix">
+      <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+        <div class="card">
+          <div class="header">
+            <h2>Last 6 Courses</h2>
+            <button mat-icon-button [matMenuTriggerFor]="coursemenu" class="header-dropdown">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #coursemenu="matMenu">
+              <button mat-menu-item (click)="addNewCourse()">
+                <mat-icon>add_circle_outline</mat-icon>
+                <span>Add</span>
+              </button>
+              <button mat-menu-item disabled>
+                <mat-icon>delete_outline</mat-icon>
+                <span>Delete</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon>refresh</mat-icon>
+                <span>Refresh</span>
+              </button>
+            </mat-menu>
+          </div>
+          <div class="tableBody">
+            <div class="table-responsive">
+              <table class="table table-hover ">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Course ID</th>
+                    <th>Course Name</th>
+                    <th>Lenght</th>
+                    <th>Start</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr  *ngFor="let course of allCourses.slice(0, 6)">
+                    <td class="table-img">
+                      <img src="assets/images/user/user1.jpg" alt="">
+                    </td>
+                    <td>{{course.CourseId}}</td>
+                    <td> {{course.courseName}}</td>
+                    <td><span class="badge bg-pink">{{course.length}}</span></td>
+                    <td>
+                      <div class="badge col-red">{{course.startDate | date:'short'}}</div>
+                    </td>
+
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <div class="card">
+          <div class="header">
+            <h2>Last 6 Teachers</h2>
+
+            <button mat-icon-button [matMenuTriggerFor]="mymenu" class="header-dropdown">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #mymenu="matMenu">
+              <button mat-menu-item (click)="addNewTeacher()">
+                <mat-icon>add_circle_outline</mat-icon>
+                <span>Add</span>
+              </button>
+              <button mat-menu-item disabled>
+                <mat-icon>delete_outline</mat-icon>
+                <span>Delete</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon>refresh</mat-icon>
+                <span>Refresh</span>
+              </button>
+
+            </mat-menu>
+          </div>
+          <div class="tableBody">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Teacher Name</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let teacher of allTeachers.slice(0, 6)">
+                    <td class="table-img">
+                      <img src="assets/images/user/user5.jpg" alt="">
+                    </td>
+                    <td>
+                      <div class="media-title"><a href="mailto:test@gmail.com"> {{teacher.firstName}} {{teacher.lastName}}
+                        </a></div>
+                      <div class="text-job font-11">(MA,B.Ed)</div>
+                    </td>
+                    <td>
+                      <div class="badge badge-solid-green">Available</div>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="card">
+          <div class="header">
+            <h2>Last 10 Students</h2>
+
+
+            <button mat-icon-button [matMenuTriggerFor]="studentmenu" class="header-dropdown">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #studentmenu="matMenu">
+              <button mat-menu-item (click)="downloadAsExcel()">
+                <span class="export-button m-l-1" matTooltip="XLSX">
+                  <img src="assets/images/icons/xlsx.png" alt=""  />
+                </span>
+                <span>Download</span>
+              </button>
+              <button mat-menu-item (click)="addNewStudent()">
+                <mat-icon>add_circle_outline</mat-icon>
+                <span>Add</span>
+              </button>
+              <button mat-menu-item disabled>
+                <mat-icon>delete_outline</mat-icon>
+                <span>Delete</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon>refresh</mat-icon>
+                <span>Refresh</span>
+              </button>
+
+            </mat-menu>
+          </div>
+          <div class="tableBody">
+            <div class="table-responsive">
+
+              <table id="student-table" class="table">
+
+                <thead>
+                  <tr>
+                    <th>#</th>
+                  <th>Student Number</th>
+                  <th>FIRST NAME</th>
+                  <th>LAST NAME</th>
+                  <th>E MAIL</th>
+                  <th>GENDER</th>
+                  <th>MOBILE</th>
+                  <th>ADRESS</th>
+                  <th>ACTION</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let student of allStudents.slice(0, 10)">
+                    <th scope="row">{{allStudents.indexOf(student)+1}}</th>
+                    <td>{{student.studentId}}</td>
+                    <td>{{student.firstName}}</td>
+                    <td>{{student.lastName}}</td>
+                    <td><span class="badge bg-success">{{student.email}}</span></td>
+                    <td>{{student.gender}}</td>
+                    <td>{{student.mobile}}</td>
+                    <td>{{student.address}}</td>
+
+                     <!-- <td>
+                      <i class="far fa-file-pdf tbl-pdf"></i>
+                    </td>
+                    <td>
+                      <button mat-icon-button class="tbl-action-btn">
+                        <app-feather-icons [icon]="'edit'" [class]="'tbl-fav-edit'"></app-feather-icons>
+                      </button>
+                      <button mat-icon-button class="tbl-action-btn">
+                        <app-feather-icons [icon]="'trash-2'" [class]="'tbl-fav-delete'"></app-feather-icons>
+                      </button>
+                    </td> -->
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</section>

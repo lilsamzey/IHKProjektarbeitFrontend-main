@@ -1,0 +1,45 @@
+<div>
+  <mat-form-field>
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker" required (dateChange)="selectedDate = $event.value; checkDateValidity()">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker utc></mat-datepicker>
+  </mat-form-field>
+
+
+</div>
+
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>No.</th>
+      <th>FIRST NAME</th>
+      <th>LAST NAME</th>
+      <th>EMAIL</th>
+      <th>MOBILE</th>
+      <th>Attendance</th>
+      <th>Explanation</th>
+    </tr>
+  </thead>
+
+  <tbody *ngFor="let student of dataSource2.data; let i = index">
+    <tr class="bg-light-blue">
+      <th scope="row">{{i+1}}</th>
+      <td>{{student.StudentId}}</td>
+      <td>{{student.firstName}}</td>
+      <td>{{student.lastName}}</td>
+      <td><span class="badge bg-purple">{{student.email}}</span></td>
+      <td>{{student.mobile}}</td>
+      <td>
+        <mat-checkbox [(ngModel)]="isChecked[i]"></mat-checkbox>
+      </td>
+      <td>
+        <input class="text-area" [(ngModel)]="explanationList[i]">
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<button  mat-raised-button color="accent" (click)="saveAttendance()" [disabled]="!isDateSelected">SAVE</button>
+

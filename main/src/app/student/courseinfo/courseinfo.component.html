@@ -1,0 +1,613 @@
+
+
+<section class="" style="height: 90vh; padding: 6%; ">
+  <!-- <section class="content" style="max-height: 800px; overflow-y: auto; "> -->
+  <div class="content-block">
+    <div class="block-header" *ngFor="let breadscrum of breadscrums12">
+
+      <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+      </app-breadcrumb>
+    </div>
+    <!-- Your content goes here  -->
+    <div class="row ">
+      <div class="col-lg-4 col-md-12">
+        <div class="card">
+          <div class="contact-grid">
+            <div class="card-body no-padding height-9">
+              <div class="row">
+                <div class="about-course-img">
+                  <img src="assets/images/banner/example.jpg" alt="">
+                </div>
+              </div>
+              <div class="mt-3">
+                <h4 class="profile-usertitle-name"> {{course.courseName}} </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="header">
+            <h2>About Course</h2>
+          </div>
+          <div class="card-body">
+            <div class="">
+              <p class="text-default">{{course.courseDetails}}</p>
+              <ul class="list-group list-group-unbordered">
+                <li class="list-group-item">
+                  <b>Duration </b>
+                  <div class="profile-desc-item float-end">{{course.length}}</div>
+                </li>
+                <li class="list-group-item">
+                  <b>Price </b>
+                  <div class="profile-desc-item float-end">{{course.price}}</div>
+                </li>
+                <li class="list-group-item">
+                  <b>Professor Name </b>
+                  <div class="profile-desc-item float-end">{{course.teacher}}</div>
+                </li>
+                <li class="list-group-item">
+                  <b>Date</b>
+                  <div class="profile-desc-item float-end">{{course.startDate | date:'short'}}</div>
+                </li>
+                <li class="list-group-item">
+                  <b>Course ID</b>
+                  <div class="profile-desc-item float-end">{{course.CourseId}}</div>
+                </li>
+                <li class="list-group-item">
+                  <b>Student Number</b>
+                  <div class="profile-desc-item float-end">{{courseStudentsNumber(dataSource2.data)}}</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+      <div class="col-lg-8 col-md-12" >
+        <div class="row ">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card" style="padding: 3%;">
+
+
+
+
+
+
+
+              <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                  <div class="info-box7 l-bg-blue order-info-box7">
+                    <div class="info-box7-block">
+                      <h6 class="m-b-20">Your Attendance</h6>
+                      <h2 class="text-end"><i class="fas fa-address-card float-start"></i><span>{{calculateAttendancePercentage()}}%</span></h2>
+                      <p class="m-b-0">Enjoy your class</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                  <div class="info-box7 l-bg-green order-info-box7">
+                    <div class="info-box7-block">
+                      <h6 class="m-b-20">Total Documents </h6>
+                      <h2 class="text-end"><i class="fas fa-book float-start"></i><span>{{FileCountOfCourse}}</span></h2>
+                      <p class="m-b-0">They stay here for you</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                  <div class="info-box7 l-bg-orange order-info-box7">
+                    <div class="info-box7-block">
+                      <h6 class="m-b-20">Online Zoom Link</h6>
+                      <h2 class="text-end"><i class="fas fa-location-arrow float-start"></i><a href="https://us06web.zoom.us/j/84895014057?pwd=QzViU2k3Wjg3MzB5TTd3NmwrTHd0UT09" target="_blank" style="color: white;"><span>JOIN CLASS</span></a></h2>
+                      <p class="m-b-0">Fridays at 20.00 </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+              <h5 class="col-orange">Course Syllabus</h5>
+                <hr>
+                <ul>
+                  <li>- Introduction to Computer and Internet.</li>
+                  <li>- Microsoft Application Tools such MS Word, MS Excel, MS
+                    PowerPoint.</li>
+                  <li>- Computer Organizations and Operating Systems.</li>
+                  <li>- Programming in C.</li>
+                  <li>- Object Oriented Programming Languages such as C++/Java.
+                  </li>
+                  <li>- RDBMS and Data Management</li>
+                  <li>- Web Technologies such as creation of dynamic website.
+                  </li>
+                </ul>
+                <br>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="card">
+
+      <mat-tab-group >
+        <mat-tab>
+          <ng-template mat-tab-label>
+
+            Course Announcement
+          </ng-template>
+
+
+
+
+
+
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+
+
+
+              <mat-accordion>
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      <p>  <span class="badge bg-cyan">Course Announcement</span> OF {{course.courseName}}- <span class="badge bg-cyan">Course ID: {{course.CourseId}}</span></p>
+                    </mat-panel-title>
+                    <!-- <mat-panel-description>
+                      Add new student to the course
+                    </mat-panel-description> -->
+                  </mat-expansion-panel-header>
+
+
+
+
+
+
+                    <app-courseannouncement [courseId]="course.CourseId"></app-courseannouncement>
+
+
+
+        </mat-expansion-panel>
+      </mat-accordion>
+        </div>
+
+      </div>
+
+
+
+
+
+
+        </mat-tab>
+
+
+
+        <mat-tab>
+          <ng-template mat-tab-label>
+
+        Course Documents
+           </ng-template>
+
+
+
+
+            <app-coursedocuments [courseId]="course.CourseId"></app-coursedocuments>
+
+
+
+          </mat-tab>
+
+
+
+
+
+
+
+
+
+
+
+          <mat-tab>
+            <ng-template mat-tab-label>
+
+              Students Attencance
+            </ng-template>
+
+            <div class="card">
+
+
+
+              <mat-accordion>
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      <p>  <span class="badge bg-cyan">Attendance </span> of {{currentStudentName}} to {{course.courseName}}- <span class="badge bg-cyan">Course ID: {{course.CourseId}}</span></p>
+                    </mat-panel-title>
+                    <!-- <mat-panel-description>
+                      Add new student to the course
+                    </mat-panel-description> -->
+                  </mat-expansion-panel-header>
+
+
+                  <hr>
+
+
+            <div class="header">
+            </div>
+            <div class="body table-responsive">
+              <table class="table table-condensed">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Course Name</th>
+                    <th>Lesson Date</th>
+                    <th>Attendance <br>
+                      <div class="progress">
+                      <div [ngClass]="['progress-bar', 'width-per-' + (calculateAttendancePercentage())]" role="progressbar" aria-valuemin="0"
+                        aria-valuemax="100">{{ calculateAttendancePercentage()  }} %</div>
+                    </div>
+                  </th>
+                    <th>Teachers Note</th>
+
+
+                  </tr>
+                </thead>
+                <tbody *ngFor="let attandance of studentCourseAttendance">
+                  <tr class="bg-light-blue">
+                    <th scope="row">{{ studentCourseAttendance.indexOf(attandance) + 1 }}</th>
+                    <td>{{ course.courseName }}</td>
+                    <td>{{ attandance.Date | date:'dd-MM-yyyy' }}</td>
+                    <td>{{ attandance.Attendance ? 'Attended' : 'Did not attend' }}</td>
+                    <td>{{ attandance.Explaining }}</td>
+                  </tr>
+                </tbody>
+
+
+
+              </table>
+              </div>
+
+
+                </mat-expansion-panel>
+                </mat-accordion>
+                </div>
+
+
+
+          </mat-tab>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <mat-tab label="Course Teachers">
+
+
+
+
+                <mat-accordion>
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        <p>  <span class="badge bg-cyan">TEACHER LIST </span> OF {{course.courseName}}- <span class="badge bg-cyan">Course ID: {{course.CourseId}}</span></p>
+                      </mat-panel-title>
+                      <!-- <mat-panel-description>
+                        Add new student to the course
+                      </mat-panel-description> -->
+                    </mat-expansion-panel-header>
+
+
+
+          <!-- Add new teachers to this course -->
+
+                <div class="header">
+                </div>
+                <div class="body table-responsive">
+                  <table class="table table-condensed">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>No.</th>
+                        <th>FIRST NAME</th>
+                        <th>LAST NAME</th>
+                        <th>EMAIL</th>
+                        <th>SEND MESSAGE</th>
+                      </tr>
+                    </thead>
+                    <tbody *ngFor="let teacher of enrolledTeachers">
+                      <tr class="bg-light-blue">
+                        <th scope="row">{{enrolledTeachers.indexOf(teacher)+1}}</th>
+                        <td>{{teacher.TeacherId}}</td>
+                        <td>{{teacher.firstName}}</td>
+                        <td>{{teacher.lastName}}</td>
+                        <td> <span class="badge bg-purple btn" (click)="sendEmail(teacher.email)">{{teacher.email}}</span></td>
+                        <!-- (click)="removeStudentFromCourse(course.CourseId, teacher.TeacherId)" -->
+                        <td> <button mat-flat-button  (click)="sendEmail(teacher.email)" ><span class="badge bg-pink">SEND MESSAGE</span></button></td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+
+              </mat-expansion-panel>
+              </mat-accordion>
+
+
+
+
+
+
+        </mat-tab>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <mat-tab>
+          <ng-template mat-tab-label>
+
+            Course Students
+          </ng-template>
+
+
+
+<!-- COURSES STUDENTS LIST -->
+
+
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  <div class="card">
+
+
+
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <p>  <span class="badge bg-cyan">STUDENTS LIST </span> OF {{course.courseName}}- <span class="badge bg-cyan">Course ID: {{course.CourseId}}</span></p>
+          </mat-panel-title>
+          <!-- <mat-panel-description>
+            Add new student to the course
+          </mat-panel-description> -->
+        </mat-expansion-panel-header>
+
+
+
+
+
+
+
+
+    <div class="header">
+    </div>
+    <div class="body table-responsive">
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>No.</th>
+            <th>FIRST NAME</th>
+            <th>LAST NAME</th>
+            <th>EMAIL</th>
+            <th>MOBILE</th>
+            <th>SEND MESSAGE</th>
+
+          </tr>
+        </thead>
+        <tbody *ngFor="let student of dataSource2.data">
+          <tr class="bg-light-blue">
+            <th scope="row">{{dataSource2.data.indexOf(student)+1}}</th>
+            <td>{{student.studentId}}</td>
+            <td>{{student.firstName}}</td>
+            <td>{{student.lastName}}</td>
+            <td> <span class="badge bg-purple btn" (click)="sendEmail(student.email)">{{student.email}}</span></td>
+            <td>{{student.mobile}}</td>
+            <td> <button mat-flat-button  (click)="sendEmail(student.email)" ><span class="badge bg-pink" >SEND MESSAGE</span></button></td>
+            <td> </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </mat-expansion-panel>
+</mat-accordion>
+  </div>
+
+</div>
+
+
+
+
+
+
+</mat-tab>
+
+
+
+
+
+
+      </mat-tab-group>
+
+
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Course attendance information -->
+
+<!--
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  <div class="card" style="padding: 3%;">
+    <h5 class="col-orange">Course Attendance of {{currentStudentName}}</h5>
+
+    <span class="badge bg-success col-lg-3 col-md-3 col-sm-12 col-xs-12 "> Attendance Percentage: {{ calculateAttendancePercentage() | percent }} </span>
+      <hr>
+
+
+<div class="header">
+</div>
+<div class="body table-responsive">
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Course Name</th>
+        <th>Lesson Date</th>
+        <th>Attendance <span class="badge badge-solid-green">{{ calculateAttendancePercentage() | percent }}</span></th>
+        <th>Teachers Note</th>
+
+      </tr>
+    </thead>
+    <tbody *ngFor="let attandance of studentCourseAttendance">
+      <tr class="bg-light-blue">
+        <th scope="row">{{ studentCourseAttendance.indexOf(attandance) + 1 }}</th>
+        <td>{{ course.courseName }}</td>
+        <td>{{ attandance.Date | date:'dd-MM-yyyy' }}</td>
+        <td>{{ attandance.Attendance ? 'Attended' : 'Did not attend' }}</td>
+        <td>{{ attandance.Explaining }}</td>
+      </tr>
+    </tbody>
+
+
+
+  </table>
+</div>
+
+</div></div> -->
+
+
+
+
+
+
+
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card" style="padding: 3%;">
+          <h5 class="col-orange">Course Syllabus</h5>
+            <hr>
+            <ul>
+              <li>- Introduction to Computer and Internet.</li>
+              <li>- Microsoft Application Tools such MS Word, MS Excel, MS
+                PowerPoint.</li>
+              <li>- Computer Organizations and Operating Systems.</li>
+              <li>- Programming in C.</li>
+              <li>- Object Oriented Programming Languages such as C++/Java.
+              </li>
+              <li>- RDBMS and Data Management</li>
+              <li>- Web Technologies such as creation of dynamic website.
+              </li>
+            </ul>
+            <br>
+            <h5 class="col-orange">After the completion of course the
+              students will be able to: </h5>
+            <hr>
+            <ul>
+              <li>- Understand computers, its basic components and
+                applications.</li>
+              <li>- Understand and Identify the Concepts of Computer
+                Hardware and software.</li>
+              <li>- Implement Word Processing Basics.</li>
+              <li>- Create Spread sheets and use of formulas and functions.
+              </li>
+              <li>- Create and develop a presentation.</li>
+              <li>- Understand basic concepts in Networking and
+                Troubleshooting.</li>
+              <li>- Develop the skills for effective compose of E-mails and
+                its features.</li>
+              <li>- Create and develop forms, queries and reports.</li>
+              <li>- Understand the concepts of multimedia and its
+                applications.</li>
+              <li>- Develop the understanding of HTML.</li>
+              <li>- Understand the concepts of Tally and its applications.
+              </li>
+              <li>- Maintenance of PC.</li>
+            </ul>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+    </div>
+
+  </div>
+</section>
