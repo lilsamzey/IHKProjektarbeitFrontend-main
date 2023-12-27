@@ -60,17 +60,18 @@ action: string;
   createCourseForm(): UntypedFormGroup {
     return this.courseForm = this.fb.group({
       courseName: ['', [Validators.required]],
-      courseCode: [''],
       courseDetails: ['', [Validators.required]],
       startDate: ['', [Validators.required]],
-      length: ['', [Validators.required]],
-      price: ['', [Validators.required]],
-      teacher: ['', [Validators.required]],
-      studentsNumber: [''],
-      contactNumber: ['', [Validators.required]],
-      uploadFile: [''],
+      length: ['', [Validators.required, Validators.pattern(/^[0-9]\d*$/)]], 
+      creationDate: [''], 
+      courseGroup: [''] 
     });
   }
+
+
+
+
+
   onSubmit() {
     this.dialogRef.close();
   }

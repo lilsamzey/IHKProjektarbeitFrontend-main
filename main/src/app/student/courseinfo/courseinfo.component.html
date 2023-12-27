@@ -362,11 +362,11 @@
                     <tbody *ngFor="let teacher of enrolledTeachers">
                       <tr class="bg-light-blue">
                         <th scope="row">{{enrolledTeachers.indexOf(teacher)+1}}</th>
-                        <td>{{teacher.TeacherId}}</td>
+                        <td>{{teacher.teacherId}}</td>
                         <td>{{teacher.firstName}}</td>
                         <td>{{teacher.lastName}}</td>
                         <td> <span class="badge bg-purple btn" (click)="sendEmail(teacher.email)">{{teacher.email}}</span></td>
-                        <!-- (click)="removeStudentFromCourse(course.CourseId, teacher.TeacherId)" -->
+                        <!-- (click)="removeStudentFromCourse(course.CourseId, teacher.teacherId)" -->
                         <td> <button mat-flat-button  (click)="sendEmail(teacher.email)" ><span class="badge bg-pink">SEND MESSAGE</span></button></td>
                       </tr>
 

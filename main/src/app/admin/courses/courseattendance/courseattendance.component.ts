@@ -395,7 +395,7 @@ this.getCoursesAttendaceInfo();
 
 
   assignTeacher(courseId: number, teacherId: number) {
-    const alreadyEnrolled = this.enrolledTeachers.find(teacher => teacher.TeacherId === teacherId);
+    const alreadyEnrolled = this.enrolledTeachers.find(teacher => teacher.teacherId === teacherId);
     if (alreadyEnrolled) {
       console.log('Student already enrolled in the course');
       this.showTitleErorIcon(teacherId)
@@ -441,7 +441,7 @@ this.getCoursesAttendaceInfo();
   }
 
   refreshAssineedTeacherList(teacherId: number): void {
-    this.enrolledTeachers = this.enrolledTeachers.filter(teacher => teacher.TeacherId !== teacherId);
+    this.enrolledTeachers = this.enrolledTeachers.filter(teacher => teacher.teacherId !== teacherId);
    // this.dataSource2 = new MatTableDataSource<Students>(this.enrolledStudents);
 
     //this.courseStudentsNumber(this.dataSource2.data)

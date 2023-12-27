@@ -55,25 +55,27 @@ export class FormDialogComponent {
       ? 'Not a valid email'
       : '';
   }
+
+
   createContactForm(): UntypedFormGroup {
     return this.fb.group({
-      id: [this.teachers.TeacherId],
+      TeacherId: [this.teachers.teacherId],
 
-      first: [this.teachers.firstName],
+      firstName: [this.teachers.firstName],
+      lastName: [this.teachers.lastName],
       email: [
         this.teachers.email,
         [Validators.required, Validators.email, Validators.minLength(5)],
       ],
-      date: [
-       this.teachers.date,
-        [Validators.required],
-      ],
       gender: [this.teachers.gender],
       mobile: [this.teachers.mobile],
-      department: [this.teachers.department],
-      degree: [this.teachers.degree],
+      address: [this.teachers.address],
     });
-  }
+}
+
+
+
+
   submit() {
     // emppty stuff
   }

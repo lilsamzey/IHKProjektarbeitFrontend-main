@@ -84,6 +84,7 @@ allCourses(): Promise<Courses[]> {
 
 
             this.allCourseList = data;
+            console.log(data)
             resolve(data);
           },
           error: (error: HttpErrorResponse) => {
@@ -237,7 +238,7 @@ allCourses(): Promise<Courses[]> {
   }
 
 
-  addAssignedTeacher(courseId: number, teacherId: number): Observable<any> {
+  addAssignedTeacher(courseId: number, teacherId: number): Observable<unknown> {
     const url = `${this.API_URL}/${courseId}/assign`;
 
     console.log('courseserviceden' + courseId)

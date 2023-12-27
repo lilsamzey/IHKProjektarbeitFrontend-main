@@ -67,7 +67,7 @@ teacherUserPassword:string | undefined;
 
   // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
   ngOnInit():void{
-   console.log(this.data.teacher.TeacherId);
+   console.log(this.data.teacher.teacherId);
 
    //this.studentsService.getStudentUsersByStudentId(this.data.student.StudentId)
 

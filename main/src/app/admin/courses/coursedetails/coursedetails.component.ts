@@ -26,7 +26,7 @@ import {SendEmailComponent} from '../../../send-email/send-email.component'
 
 
 export interface DialogData {
-  CourseId: number;
+  courseId: number;
   action: string;
   course: Courses;
   firstName: string;
@@ -35,7 +35,7 @@ export interface DialogData {
 }
 
 export class Courses {
-  CourseId!: number;
+  courseId!: number;
   courseName!: string;
   length: string | undefined;
   price: number | undefined;
@@ -100,6 +100,10 @@ export class CoursedetailsComponent implements OnInit {
   filteredData: any[]=[];
 
   FileCountOfCourse=0;
+
+
+  
+ 
 
 
   action: string;
@@ -168,9 +172,9 @@ export class CoursedetailsComponent implements OnInit {
 
   console.log('control1')
       // Kursa kayıtlı öğrencileri almak için yeni fonksiyonu çağır
-      this.enrolledStudents = await this.coursesServiceService.getEnrolledStudents(this.course.CourseId);
+      this.enrolledStudents = await this.coursesServiceService.getEnrolledStudents(this.course.courseId);
 
-      this.enrolledTeachers = await this.coursesServiceService.getAssignedTeachers(this.course.CourseId);
+      this.enrolledTeachers = await this.coursesServiceService.getAssignedTeachers(this.course.courseId);
       console.log('Enrolled Students12 :', this.enrolledStudents);
     } catch (error) {
       console.error('Error 12:', error);
@@ -185,9 +189,9 @@ export class CoursedetailsComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.panelOpenState = false;
-    //this.filteredData = this.allTeachers;
+    
 
-    this.getFileCountOfCourse();
+    
 
 
 
@@ -293,7 +297,9 @@ export class CoursedetailsComponent implements OnInit {
 
 
   assignTeacher(courseId: number, teacherId: number) {
-    const alreadyEnrolled = this.enrolledTeachers.find(teacher => teacher.TeacherId === teacherId);
+
+    console.log(courseId)
+    const alreadyEnrolled = this.enrolledTeachers.find(teacher => teacher.teacherId === teacherId);
     if (alreadyEnrolled) {
       console.log('Student already enrolled in the course');
       this.showTitleErorIcon(teacherId)
@@ -301,7 +307,7 @@ export class CoursedetailsComponent implements OnInit {
       this.coursesServiceService.addAssignedTeacher(courseId, teacherId)
         .subscribe(
           () => {
-            // Kayıt işlemi başarılı olduğunda yapılacak işlemler
+            
             this.snackBar.open('Teacher added to course', 'Close', {
               duration: 2000
             });
@@ -310,9 +316,9 @@ export class CoursedetailsComponent implements OnInit {
 
           },
           (error: HttpErrorResponse) => {
-            // Hata durumunda yapılacak işlemler
+            
             console.error('Enrollment error:', error);
-            // Hata durumunda gerekli işlemleri yapabilir veya kullanıcıya hata mesajı gösterebilirsiniz.
+            
           }
         );
     }
@@ -339,7 +345,7 @@ export class CoursedetailsComponent implements OnInit {
   }
 
   refreshAssineedTeacherList(teacherId: number): void {
-    this.enrolledTeachers = this.enrolledTeachers.filter(teacher => teacher.TeacherId !== teacherId);
+    this.enrolledTeachers = this.enrolledTeachers.filter(teacher => teacher.teacherId !== teacherId);
    // this.dataSource2 = new MatTableDataSource<Students>(this.enrolledStudents);
 
     //this.courseStudentsNumber(this.dataSource2.data)
@@ -384,7 +390,7 @@ studentDetails(student:any){
 
 
 getFileCountOfCourse(): void {
-  this.coursesServiceService.getFileCountOfCourse(this.course.CourseId).subscribe(
+  this.coursesServiceService.getFileCountOfCourse(this.course.courseId).subscribe(
     (data: any[]) => {
       this.FileCountOfCourse = data[0].FileCount;
     },

@@ -1,43 +1,23 @@
-
-
 export class Teachers {
-  TeacherId: number;
-
+  teacherId: number;
   firstName: string;
   lastName: string;
-  email: string;
-  date: string;
   gender: string;
   mobile: string;
-  department: string;
-  degree: string;
-  password: string;
-  confirmPassword: string;
-  designation: string;
+  email: string;
   address: string;
-  dob: string;
-  uploadFile: string;
 
-  constructor(teachers: Teachers) {
-    this.TeacherId = teachers.TeacherId
-
+  constructor(teachers: Partial<Teachers>) {
+    this.teacherId = teachers.teacherId || this.getRandomID(); // Assuming you still want to generate IDs like this
     this.firstName = teachers.firstName || '';
     this.lastName = teachers.lastName || '';
-    this.email = teachers.email || '';
-    this.date = teachers.date;
     this.gender = teachers.gender || '';
     this.mobile = teachers.mobile || '';
-    this.department = teachers.department || '';
-    this.degree = teachers.degree || '';
-    this.password = teachers.password || '';
-    this.confirmPassword = teachers.confirmPassword || '';
-    this.designation=teachers.designation;
-    this.address=teachers.address;
-    this.dob=teachers.dob;
-    this.uploadFile=teachers.uploadFile;
-
+    this.email = teachers.email || '';
+    this.address = teachers.address || '';
   }
-  public getRandomID(): number {
+
+  private getRandomID(): number {
     const S4 = () => {
       return ((1 + Math.random()) * 0x10000) | 0;
     };

@@ -37,7 +37,7 @@
               <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">
                   <b>Course Number</b>
-                  <div class="profile-desc-item float-end">{{course.CourseId}}</div>
+                  <div class="profile-desc-item float-end">{{course.courseId}}</div>
                 </li>
                 <li class="list-group-item">
                   <b>Duration </b>
@@ -135,15 +135,13 @@
 
 
 
-              <h5 class="col-orange">Course Documents</h5>
+              <!-- <h5 class="col-orange">Course Documents</h5>
               <hr>
 
 
-              <!-- <app-courseannouncement [courseId]="course.CourseId"></app-courseannouncement> -->
+              
 
-              <app-coursedocuments [courseId]="course.CourseId"></app-coursedocuments>
-
-
+              <app-coursedocuments [courseId]="course.courseId"></app-coursedocuments> -->
 
 
 
@@ -153,46 +151,8 @@
 
 
 
-<!--
-              <h5 class="col-orange">Course Syllabus</h5>
-                <hr>
-                <ul>
-                  <li>- Introduction to Computer and Internet.</li>
-                  <li>- Microsoft Application Tools such MS Word, MS Excel, MS
-                    PowerPoint.</li>
-                  <li>- Computer Organizations and Operating Systems.</li>
-                  <li>- Programming in C.</li>
-                  <li>- Object Oriented Programming Languages such as C++/Java.
-                  </li>
-                  <li>- RDBMS and Data Management</li>
-                  <li>- Web Technologies such as creation of dynamic website.
-                  </li>
-                </ul>
-                <br>
-                <h5 class="col-orange">After the completion of course the
-                  students will be able to: </h5>
-                <hr>
-                <ul>
-                  <li>- Understand computers, its basic components and
-                    applications.</li>
-                  <li>- Understand and Identify the Concepts of Computer
-                    Hardware and software.</li>
-                  <li>- Implement Word Processing Basics.</li>
-                  <li>- Create Spread sheets and use of formulas and functions.
-                  </li>
-                  <li>- Create and develop a presentation.</li>
-                  <li>- Understand basic concepts in Networking and
-                    Troubleshooting.</li>
-                  <li>- Develop the skills for effective compose of E-mails and
-                    its features.</li>
-                  <li>- Create and develop forms, queries and reports.</li>
-                  <li>- Understand the concepts of multimedia and its
-                    applications.</li>
-                  <li>- Develop the understanding of HTML.</li>
-                  <li>- Understand the concepts of Tally and its applications.
-                  </li>
-                  <li>- Maintenance of PC.</li>
-                </ul> -->
+
+
             </div>
           </div>
         </div>
@@ -213,7 +173,7 @@
 
 
 
-          <mat-tab>
+          <!-- <mat-tab>
             <ng-template mat-tab-label>
 
               Course Announcement
@@ -223,19 +183,17 @@
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
                   <mat-panel-title>
-                    <p>  <span class="badge bg-success">Course Chat </span> OF {{course.courseName}}- <span class="badge bg-cyan">Course ID: {{course.CourseId}}</span></p>
+                    <p>  <span class="badge bg-success">Course Chat </span> OF {{course.courseName}}- <span class="badge bg-cyan">Course ID: {{course.courseId}}</span></p>
                   </mat-panel-title>
-                  <!-- <mat-panel-description>
-                    Add new student to the course
-                  </mat-panel-description> -->
+                  
                 </mat-expansion-panel-header>
 
-                <app-courseannouncement [courseId]="course.CourseId"></app-courseannouncement>
+                <app-courseannouncement [courseId]="course.courseId"></app-courseannouncement>
 
             </mat-expansion-panel>
           </mat-accordion>
 
-          </mat-tab>
+          </mat-tab> -->
 
 
 
@@ -246,7 +204,7 @@
 
 
 
-          <mat-tab>
+          <!-- <mat-tab>
             <ng-template mat-tab-label>
 
               ATTENDANCE
@@ -256,11 +214,9 @@
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
                   <mat-panel-title>
-                    <p>  <span class="badge bg-success">Course Attandance </span> OF {{course.courseName}}- <span class="badge bg-cyan">Course ID: {{course.CourseId}}</span></p>
+                    <p>  <span class="badge bg-success">Course Attandance </span> OF {{course.courseName}}- <span class="badge bg-cyan">Course ID: {{course.courseId}}</span></p>
                   </mat-panel-title>
-                  <!-- <mat-panel-description>
-                    Add new student to the course
-                  </mat-panel-description> -->
+                  
                 </mat-expansion-panel-header>
 
                 <app-courseattendance></app-courseattendance>
@@ -268,7 +224,7 @@
             </mat-expansion-panel>
           </mat-accordion>
 
-          </mat-tab>
+          </mat-tab> -->
 
 
 
@@ -288,7 +244,7 @@
 
 
 
-                <mat-tab >
+                <!-- <mat-tab >
                   <ng-template mat-tab-label>
 
                     DOCUMENTS
@@ -299,14 +255,12 @@
                     <mat-expansion-panel>
                       <mat-expansion-panel-header>
                         <mat-panel-title>
-                          <p>  <span class="badge bg-success">Course Documents </span> OF {{course.courseName}}- <span class="badge bg-cyan">Course ID: {{course.CourseId}}</span></p>
+                          <p>  <span class="badge bg-success">Course Documents </span> OF {{course.courseName}}- <span class="badge bg-cyan">Course ID: {{course.courseId}}</span></p>
                         </mat-panel-title>
-                        <!-- <mat-panel-description>
-                          Add new student to the course
-                        </mat-panel-description> -->
+                        
                       </mat-expansion-panel-header>
 
-                      <app-coursedocuments [courseId]="course.CourseId"></app-coursedocuments>
+                      <app-coursedocuments [courseId]="course.courseId"></app-coursedocuments>
 
                   </mat-expansion-panel>
                 </mat-accordion>
@@ -314,7 +268,7 @@
 
 
 
-                 </mat-tab>
+                 </mat-tab> -->
 
 
 
@@ -338,7 +292,7 @@
                           <mat-expansion-panel>
                             <mat-expansion-panel-header>
                               <mat-panel-title>
-                                <p>  <span class="badge bg-cyan">TEACHER LIST </span> OF {{course.courseName}}- <span class="badge bg-cyan">Course ID: {{course.CourseId}}</span></p>
+                                <p>  <span class="badge bg-cyan">TEACHER LIST </span> OF {{course.courseName}}- <span class="badge bg-cyan">Course ID: {{course.courseId}}</span></p>
                               </mat-panel-title>
                               <!-- <mat-panel-description>
                                 Add new student to the course
@@ -358,7 +312,7 @@
                       <mat-expansion-panel>
                         <mat-expansion-panel-header>
                           <mat-panel-title>
-                            <p> <span class="badge bg-pink">ADD NEW TEACHER </span> TO {{course.courseName}}- <span class="badge bg-pink">Course ID: {{course.CourseId}}</span></p>
+                            <p> <span class="badge bg-pink">ADD NEW TEACHER </span> TO {{course.courseName}}- <span class="badge bg-pink">Course ID: {{course.courseId}}</span></p>
                           </mat-panel-title>
                           <!-- <mat-panel-description>
                             Add new student to the course
@@ -375,9 +329,11 @@
                         </div>
 
                         <table mat-table [dataSource]="dataSource3.data" class="w-100">
+
+                          
                           <ng-container matColumnDef="StudentNumber">
                             <th mat-header-cell *matHeaderCellDef>Teacher Number</th>
-                            <td mat-cell *matCellDef="let element">{{ element.TeacherId }}</td>
+                            <td mat-cell *matCellDef="let element">{{ element.teacherId }}</td>
                           </ng-container>
                           <ng-container matColumnDef="firstName">
                             <th mat-header-cell *matHeaderCellDef>Name</th>
@@ -386,7 +342,8 @@
                           <ng-container matColumnDef="add/remove">
                             <th mat-header-cell *matHeaderCellDef>Add</th>
                             <td mat-cell *matCellDef="let element">
-                              <button mat-flat-button (click)="assignTeacher(course.CourseId, element.TeacherId)">
+                              <button mat-flat-button (click)="assignTeacher(course.courseId, element.teacherId)">
+                                
                                 <span class="badge bg-cyan">ADD  >>></span>
                               </button>
                             </td>
@@ -427,12 +384,12 @@
                             <tbody *ngFor="let teacher of enrolledTeachers">
                               <tr class="bg-light-blue">
                                 <th scope="row">{{enrolledTeachers.indexOf(teacher)+1}}</th>
-                                <td>{{teacher.TeacherId}}</td>
+                                <td>{{teacher.teacherId}}</td>
                                 <td>{{teacher.firstName}}</td>
                                 <td>{{teacher.lastName}}</td>
                                 <td class="btn"> <span class="badge bg-purple" (click)="sendEmail(teacher.email)">{{teacher.email}}</span></td>
-                                <!-- (click)="removeStudentFromCourse(course.CourseId, teacher.TeacherId)" -->
-                                <td> <button mat-flat-button   (click)="removeTeacherFromCourse(course.CourseId, teacher.TeacherId)"><span class="badge bg-pink">REMOVE</span></button></td>
+                                <!-- (click)="removeStudentFromCourse(course.courseId, teacher.TeacherId)" -->
+                                <td> <button mat-flat-button   (click)="removeTeacherFromCourse(course.courseId, teacher.teacherId)"><span class="badge bg-pink">REMOVE</span></button></td>
                               </tr>
 
                             </tbody>
@@ -485,7 +442,7 @@
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
                   <mat-panel-title>
-                    <p>  <span class="badge bg-cyan">STUDENTS LIST </span> OF {{course.courseName}}- <span class="badge bg-cyan">Course ID: {{course.CourseId}}</span></p>
+                    <p>  <span class="badge bg-cyan">STUDENTS LIST </span> OF {{course.courseName}}- <span class="badge bg-cyan">Course ID: {{course.courseId}}</span></p>
                   </mat-panel-title>
                   <!-- <mat-panel-description>
                     Add new student to the course
@@ -510,7 +467,7 @@
                   <mat-expansion-panel>
                     <mat-expansion-panel-header>
                       <mat-panel-title>
-                        <p> <span class="badge bg-pink">ADD NEW STUDENT </span> TO {{course.courseName}}- <span class="badge bg-pink">Course ID: {{course.CourseId}}</span></p>
+                        <p> <span class="badge bg-pink">ADD NEW STUDENT </span> TO {{course.courseName}}- <span class="badge bg-pink">Course ID: {{course.courseId}}</span></p>
                       </mat-panel-title>
                       <!-- <mat-panel-description>
                         Add new student to the course
@@ -528,6 +485,8 @@
                               <table mat-table [dataSource]="dataSource" class="w-100">
 
                               <a href="#">
+                                
+
                                 <ng-container matColumnDef="StudentNumber">
                                   <th mat-header-cell *matHeaderCellDef>Student Number</th>
                                   <td mat-cell *matCellDef="let element"> {{element.studentId}}</td>
@@ -539,7 +498,7 @@
 
                                 <ng-container matColumnDef="add/remove">
                                   <th mat-header-cell *matHeaderCellDef>Add </th>
-                                  <td mat-cell *matCellDef="let element"> <button mat-flat-button  (click)="enrollStudent(course.CourseId, element.studentId)"> <span class="badge bg-cyan"> ADD NEW >></span></button> </td>
+                                  <td mat-cell *matCellDef="let element"> <button mat-flat-button  (click)="enrollStudent(course.courseId, element.studentId)"> <span class="badge bg-cyan"> ADD NEW >></span></button> </td>
                                 </ng-container>
 
 
@@ -579,7 +538,7 @@
                 <tbody *ngFor="let student of dataSource2.data">
                   <tr class="bg-light-blue">
                     <th scope="row">{{dataSource2.data.indexOf(student)+1}}</th>
-                    <td>{{student.studentId}}</td>
+                    <td>{{student.studentId}} </td>
                     <td>{{student.firstName}}</td>
                     <td>{{student.lastName}}</td>
                     <td class="btn"> <span class="badge bg-purple" (click)="sendEmail(student.email)">{{student.email}}</span></td>
@@ -590,7 +549,7 @@
                     <!-- <td> <button mat-flat-button  (click)="sendEmail(student.email)" routerLink="/email/compose" ><span class="badge bg-pink">Send Email</span></button></td> -->
 
 
-                    <td> <button mat-flat-button   (click)="removeStudentFromCourse(course.CourseId, student.studentId)"><span class="badge bg-pink">Remove</span></button></td>
+                    <td> <button mat-flat-button   (click)="removeStudentFromCourse(course.courseId, student.studentId)"><span class="badge bg-pink">Remove</span></button></td>
                   </tr>
                 </tbody>
               </table>

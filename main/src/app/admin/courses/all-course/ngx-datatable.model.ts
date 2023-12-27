@@ -1,32 +1,20 @@
 export class Courses {
-  CourseId: number;
+  courseId: number;          
   courseName: string;
-  courseCode: string;
   courseDetails: string;
-  startDate: string;
-  length: string;
-  price: string;
-  teacher: string;
-  studentsNumber: string;
-  contactNumber: string;
+  startDate: string;        
+  length: number;            
+  creationDate: string;      
+  courseGroup: string;       
+
   constructor(course: Courses) {
-    {
-      this.CourseId = course.CourseId || this.getRandomID();
-      this.courseName = course.courseName || '';
-      this.courseCode = course.courseCode || '';
-      this.courseDetails = course.courseDetails || '';
-      this.startDate = course.startDate || '';
-      this.length = course.length || '';
-      this.price = course.price || '';
-      this.teacher = course.teacher || '';
-      this.studentsNumber = course.studentsNumber || '';
-      this.contactNumber = course.contactNumber || '';
-    }
+    this.courseId = course.courseId  
+    this.courseName = course.courseName || '';
+    this.courseDetails = course.courseDetails || '';
+    this.startDate = course.startDate || '';
+    this.length = course.length || 0;
+    this.creationDate = course.creationDate || '';
+    this.courseGroup = course.courseGroup || '';
   }
-  public getRandomID(): number {
-    const S4 = () => {
-      return ((1 + Math.random()) * 0x10000) | 0;
-    };
-    return S4() + S4();
-  }
+
 }

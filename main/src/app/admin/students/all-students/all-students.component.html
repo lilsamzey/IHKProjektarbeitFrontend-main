@@ -323,14 +323,17 @@
 
 
               <div class="col-md-2" *ngFor="let student of allStudent ">
-                <div class="card border-apply">
-                  <div class="m-b-20">
+                <div class="card border-apply" (click)="studentDetails(student)">
+                  <div class="m-b-10">
                     <div class="contact-grid">
                       <div class="profile-header bg-cyan">
                         <div class="user-name">{{student.firstName}} {{student.lastName}}</div>
                         <div class="name-center">{{student.studentId}}</div>
+                        
                       </div>
-                      <a class="btn"  (click)="studentDetails(student)"> <img class="user-img" src="assets/images/user/usrbig1.jpg" ></a>
+                      
+                      <!-- <a class="btn"  (click)="studentDetails(student)"> 
+                        <img class="user-img" src="assets/images/user/usrbig1.jpg" ></a> -->
                       <!-- <button (click)="studentDetails(student)"><img src="assets/images/user/usrbig1.jpg" class="user-img" alt=""></button> -->
                       <p>
                         {{student.address}}
@@ -342,9 +345,9 @@
                       </div>
                       <div class="profile-userbuttons">
                         
+                        <!-- <button mat-flat-button color="primary" (click)="studentDetails(student)">Details</button> -->
                         
                         
-                        <button mat-flat-button color="primary" (click)="studentDetails(student)">Read More</button>
                       </div>
                     </div>
                   </div>

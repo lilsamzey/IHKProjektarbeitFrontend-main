@@ -51,11 +51,12 @@ export class AllTeachersComponent
   implements OnInit
 {
   displayedColumns = [
-    'select',
-
+    'index',
+    //'select',
+    'teacherId',
     'firstName',
     'lastName',
-    'department',
+    
     'gender',
     //'degree',
     'mobile',
@@ -161,9 +162,9 @@ export class AllTeachersComponent
 
   async teacherDetails(row: Teachers) {
 
-    this.id = row.TeacherId;
+    this.id = row.teacherId;
 
-    console.log('detaydan gelen' + row.TeacherId)
+    console.log('detaydan gelen' + row.teacherId)
 
    //await this.teachersService.getStudentUsersByStudentId(row.TeacherId);
 
@@ -221,7 +222,7 @@ export class AllTeachersComponent
 
 
   editCall(row: Teachers) {
-    this.id = row.TeacherId;
+    this.id = row.teacherId;
     console.log(row)
 
     let tempDirection: Direction;
@@ -241,7 +242,7 @@ export class AllTeachersComponent
       if (result === 1) {
         // When using an edit things are little different, firstly we find record inside DataService by id
         const foundIndex = this.exampleDatabase?.dataChange.value.findIndex(
-          (x) => x.TeacherId === this.id
+          (x) => x.teacherId === this.id
         );
         // Then you update that record using data from dialogData (values you enetered)
         if (foundIndex != null && this.exampleDatabase) {
@@ -263,7 +264,7 @@ export class AllTeachersComponent
 
 
   deleteItem(row: Teachers) {
-    this.id = row.TeacherId;
+    this.id = row.teacherId;
     let tempDirection: Direction;
     if (localStorage.getItem('isRtl') === 'true') {
       tempDirection = 'rtl';
@@ -277,7 +278,7 @@ export class AllTeachersComponent
     this.subs.sink = dialogRef.afterClosed().subscribe((result) => {
       if (result === 1) {
         const foundIndex = this.exampleDatabase?.dataChange.value.findIndex(
-          (x) => x.TeacherId === this.id
+          (x) => x.teacherId === this.id
         );
         // for delete we use splice in order to remove single object from DataService
         if (foundIndex != null && this.exampleDatabase) {
@@ -371,9 +372,9 @@ export class AllTeachersComponent
     const exportData: Partial<TableElement>[] =
       this.dataSource.filteredData.map((x) => ({
         First: x.firstName,
-        Department: x.department,
+        
         Gender: x.gender,
-        Degree: x.degree,
+        
         Mobile: x.mobile,
         Email: x.email,
         'Joining Date': '',
@@ -539,9 +540,9 @@ export class ExampleDataSource extends DataSource<Teachers> {
           .filter((teachers: Teachers) => {
             const searchStr = (
               teachers.firstName +
-              teachers.department +
+              
               teachers.gender +
-              teachers.degree +
+              
               teachers.email +
               teachers.mobile
             ).toLowerCase();
@@ -572,7 +573,7 @@ export class ExampleDataSource extends DataSource<Teachers> {
       let propertyB: number | string = '';
       switch (this._sort.active) {
         case 'id':
-          [propertyA, propertyB] = [a.TeacherId, b.TeacherId];
+          [propertyA, propertyB] = [a.teacherId, b.teacherId];
           break;
         case 'name':
           [propertyA, propertyB] = [a.firstName, b.firstName];
@@ -580,12 +581,8 @@ export class ExampleDataSource extends DataSource<Teachers> {
         case 'email':
           [propertyA, propertyB] = [a.email, b.email];
           break;
-        case 'date':
-          [propertyA, propertyB] = [a.date, b.date];
-          break;
-        case 'time':
-          [propertyA, propertyB] = [a.department, b.department];
-          break;
+        
+        
         case 'mobile':
           [propertyA, propertyB] = [a.mobile, b.mobile];
           break;

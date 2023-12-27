@@ -35,18 +35,15 @@ export class AddCourseComponent {
 
     ) {
 
-    this.courseForm = this.fb.group({
-      courseName: ['', [Validators.required]],
-      courseCode: [''],
-      courseDetails: ['', [Validators.required]],
-      startDate: ['', [Validators.required]],
-      length: ['', [Validators.required]],
-      price: ['', [Validators.required]],
-      teacher: ['', [Validators.required]],
-      studentsNumber: [''],
-      contactNumber: ['', [Validators.required]],
-      uploadFile: [''],
-    });
+      this.courseForm = this.fb.group({
+        courseName: ['', [Validators.required]],
+        courseDetails: ['', [Validators.required]],
+        startDate: ['', [Validators.required]],
+        length: ['', [Validators.required, Validators.pattern(/^[0-9]+$/)]], 
+       
+        courseGroup: [''], 
+      });
+      
   }
   onSubmit() {
 
@@ -54,6 +51,8 @@ export class AddCourseComponent {
 
       this.coursesServiceService.addCourses(this.courseForm.value);
       this.showAlert('Your new Course: ' + this.courseForm.value.courseName + ' added.');
+
+      console.log(this.courseForm.value)
 
       this.showSuccess();
       //this.dialogRef.close();

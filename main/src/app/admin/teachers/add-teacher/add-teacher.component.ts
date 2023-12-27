@@ -27,18 +27,12 @@ export class AddTeacherComponent {
       lastName: [''],
       gender: ['', [Validators.required]],
       mobile: ['', [Validators.required]],
-      password: ['', [Validators.required]],
-      confirmPassword: ['', [Validators.required]],
-      designation: [''],
-      department: [''],
       address: [''],
       email: [
         '',
         [Validators.required, Validators.email, Validators.minLength(5)],
       ],
-      dob: ['', [Validators.required]],
-      education: [''],
-      uploadFile: [''],
+      
     });
   }
   onSubmit() {

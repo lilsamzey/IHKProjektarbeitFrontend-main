@@ -68,8 +68,14 @@
                   <div class="body overflow-auto">
                     <div class="responsive_table">
                       <table mat-table #table [dataSource]="dataSource" matSort class="mat-cell">
+                        <ng-container matColumnDef="index">
+                          <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+                          <mat-cell *matCellDef="let row; let i = index;"> 
+                            {{i + 1 + paginator.pageIndex * paginator.pageSize}}
+                          </mat-cell>
+                        </ng-container>
                         <!-- Checkbox Column -->
-                        <ng-container matColumnDef="select">
+                        <!-- <ng-container matColumnDef="select">
                           <mat-header-cell *matHeaderCellDef [ngClass]="'tbl-col-width-per-6'">
                             <mat-checkbox (change)="$event ? masterToggle() : null"
                               [checked]="selection.hasValue() && isAllSelected()"
@@ -82,12 +88,12 @@
                               [ngClass]="'tbl-checkbox'">
                             </mat-checkbox>
                           </mat-cell>
-                        </ng-container>
+                        </ng-container> -->
                         <!-- ID Column -->
-                        <ng-container matColumnDef="id">
-                          <mat-header-cell *matHeaderCellDef mat-sort-header>Id
+                        <ng-container matColumnDef="teacherId">
+                          <mat-header-cell *matHeaderCellDef mat-sort-header>Teacher Nr.
                           </mat-header-cell>
-                          <mat-cell *matCellDef="let row">{{row.id}}</mat-cell>
+                          <mat-cell *matCellDef="let row">{{row.teacherId}}</mat-cell>
                         </ng-container>
                         <!-- <ng-container matColumnDef="img">
                           <mat-header-cell mat-header-cell *matHeaderCellDef [ngClass]="'tbl-col-width-per-6'"> Image
@@ -110,26 +116,21 @@
                               class="mobile-label">first:</span> {{row.lastName}}
                           </mat-cell>
                         </ng-container>
-                        <ng-container matColumnDef="department">
-                          <mat-header-cell *matHeaderCellDef mat-sort-header>Department
-                          </mat-header-cell>
-                          <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)">
-                            <span class="mobile-label">Department:</span>{{row.department}}</mat-cell>
-                        </ng-container>
+                        
                         <ng-container matColumnDef="gender">
                           <mat-header-cell *matHeaderCellDef mat-sort-header> Gender
                           </mat-header-cell>
                           <mat-cell mat-cell *matCellDef="let row">
                             <span class="mobile-label">Gender:</span>
-                            <div *ngIf="row.gender==='male'">
+                            <div *ngIf="row.gender==='Male'">
                               <span class="badge badge-solid-green">
                                 {{row.gender}}</span>
                             </div>
-                            <div *ngIf="row.gender==='female'">
+                            <div *ngIf="row.gender==='Female'">
                               <span class="badge badge-solid-purple">
                                 {{row.gender}}</span>
                             </div>
-                            <div *ngIf="row.gender==='other'">
+                            <div *ngIf="row.gender==='Other'">
                               <span class="badge badge-solid-orange">
                                 {{row.gender}}</span>
                             </div>
@@ -323,19 +324,7 @@
                                 </button>
                               </div>
                             </li>
-                            <!-- <li class="tbl-header-btn">
-                              <div class="m-l-10" [hidden]=!selection.hasValue() matTooltip="DELETE">
-                                <button mat-mini-fab color="warn" (click)="removeSelectedRows()">
-                                  <mat-icon class="col-white">delete
-                                  </mat-icon>
-                                </button>
-                              </div>
-                            </li> -->
-                            <!-- <li>
-                              <div class="export-button m-l-10" matTooltip="XLSX">
-                                <img src="assets/images/icons/xlsx.png" alt="" (click)="exportExcel()" />
-                              </div>
-                            </li> -->
+                            
                           </ul>
                         </div>
                       </div>
@@ -343,15 +332,15 @@
 
 
                       <div class="row mt-5 ml-0 mr-0">
-                        <div class="col-md-4" *ngFor="let teacher of dataSource.renderedData">
+                        <div class="col-md-2" *ngFor="let teacher of dataSource.renderedData">
                           <div class="card border-apply" *ngIf="teacher.firstName.toLowerCase().includes(filters.toLowerCase())">
                             <div class="m-b-20">
                               <div class="contact-grid">
-                                <div class="profile-header l-bg-purple-dark">
+                                <div class="profile-header bg-cyan">
                                   <div class="user-name">{{ teacher.firstName }} {{ teacher.lastName }}</div>
-                                  <div class="name-center">{{ teacher.department }}</div>
+                                  
                                 </div>
-                                <img src="assets/images/user/usrbig1.jpg" class="user-img" alt="">
+                                <!-- <img src="assets/images/user/usrbig1.jpg" class="user-img" alt=""> -->
                                 <p>
                                   {{ teacher.address }}
                                   <br />
@@ -361,7 +350,7 @@
                                     <i class="material-icons">phone</i> {{ teacher.mobile }}</span>
                                 </div>
                                 <div class="profile-userbuttons">
-                                  <button mat-flat-button color="primary">Read More</button>
+                                  <!-- <button mat-flat-button color="primary">Read More</button> -->
                                 </div>
                               </div>
                             </div>

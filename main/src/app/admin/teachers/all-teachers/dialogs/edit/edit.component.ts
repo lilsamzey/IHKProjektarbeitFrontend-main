@@ -78,28 +78,28 @@ export class EditComponent {
 
   createContactForm(): UntypedFormGroup {
     return this.fb.group({
-
+      teacherId: [this.teachers.teacherId],  
       firstName: [
         this.teachers.firstName,
-        [Validators.required, Validators.pattern('[a-zA-Z]+')],
+        [Validators.required, Validators.pattern('[a-zA-Z]+')]
       ],
       lastName: [this.teachers.lastName],
       gender: [this.teachers.gender, [Validators.required]],
       mobile: [this.teachers.mobile, [Validators.required]],
-      password: [this.teachers.password],
-      conformPassword: [this.teachers.confirmPassword],
       email: [
         this.teachers.email,
-        [Validators.required, Validators.email, Validators.minLength(5)],
+        [Validators.required, Validators.email, Validators.minLength(5)]
       ],
-      designation: [this.teachers.designation],
-      department: [this.teachers.department],
       address: [this.teachers.address],
-      dob: [this.teachers.dob, [Validators.required]],
-      education: [this.teachers.degree],
-      uploadFile: [this.teachers.uploadFile],
+
+      // Removed fields that are not in the Teachers class
     });
-  }
+}
+
+
+
+
+
   submit() {
     // emppty stuff
   }
@@ -113,9 +113,9 @@ export class EditComponent {
   onSubmit(){
   console.log('Form Value first name22', this.proForm.value.firstName);
 
-  console.log('Form Value:', this.teachers.TeacherId);
+  console.log('Form Value:', this.proForm.value);
   // Add the following line to call the service method to add the student
- this.teachersService.updateTeachers(this.teachers.TeacherId, this.proForm.value);
+ this.teachersService.updateTeachers(this.teachers.teacherId, this.proForm.value);
 
  this.dialogRef.close();
  }

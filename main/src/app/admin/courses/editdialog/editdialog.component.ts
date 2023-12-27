@@ -19,7 +19,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 export interface DialogData {
-  CourseId: number;
+  courseId: number;
   action: string;
   course: Courses;
 }
@@ -85,7 +85,7 @@ export class EditdialogComponent {
  onSubmit() {
     console.log('Form Value', this.courseForm.value);
 
-    this.coursesServiceService.updateCourses(this.course.CourseId, this.courseForm.value);
+    this.coursesServiceService.updateCourses(this.course.courseId, this.courseForm.value);
 
     this.showAlert('Your Course: ' + this.courseForm.value.courseName + ' UPDATED.');
 
@@ -97,17 +97,14 @@ export class EditdialogComponent {
   createEditForm(): UntypedFormGroup {
     return this.courseForm = this.fb.group({
       courseName: [this.course.courseName, [Validators.required]],
-      courseCode: [this.course.courseCode],
       courseDetails: [this.course.courseDetails, [Validators.required]],
       startDate: [this.course.startDate, [Validators.required]],
-      length: [this.course.length, [Validators.required]],
-      price: [this.course.price, [Validators.required]],
-      teacher: [this.course.teacher, [Validators.required]],
-      studentsNumber: [this.course.studentsNumber],
-      contactNumber: [this.course.contactNumber, [Validators.required]],
-      uploadFile: [''],
+      length: [this.course.length, [Validators.required, Validators.pattern(/^[0-9]+$/)]], // Sayısal değerler için ekstra doğrulama
+      creationDate: [this.course.creationDate], // İsteğe bağlı olarak varsayılan bir tarih atayabilirsiniz.
+      courseGroup: [this.course.courseGroup], // İsteğe bağlı olarak doğrulayıcı ekleyebilirsiniz.
     });
-  }
+}
+
 
 
 

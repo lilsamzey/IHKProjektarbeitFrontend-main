@@ -37,7 +37,7 @@ import { AdddialogComponent } from '../adddialog/adddialog.component';
 
 
 export interface DialogData {
-  CourseId: number;
+  courseId: number;
   action: string;
   course: Courses;
   firstName: string;
@@ -167,7 +167,7 @@ console.log('all course conmponent')
 
 
 this.getAllCourses();
-this.CourseStudentCounts();
+// this.CourseStudentCounts();
 
 
   }
@@ -181,13 +181,15 @@ this.CourseStudentCounts();
 
 
   async getAllCourses() {
-    this.loading = true; // Set the loading flag to true before fetching data
+    this.loading = true; 
     try {
       this.courses = await this.coursesServiceService.allCourses();
-      this.loading = false; // Set the loading flag to false after fetching data
+
+      console.log(this.courses)
+      this.loading = false; 
     } catch (error) {
       console.error('Courses weren\'t found:', error);
-      this.loading = true; // Set the loading flag to false even if there was an error
+      this.loading = true; 
     }
   }
 
@@ -199,25 +201,25 @@ this.CourseStudentCounts();
 
 
 
-    CourseStudentCounts(){
+    // CourseStudentCounts(){
 
 
 
-      this.coursesServiceService.CourseStudentCounts().subscribe(data => {
-        this.courseData = data; // API'den gelen verileri courseData'ya atıyoruz
-        this.filterCourses();
-        console.log(this.courseData)
+    //   this.coursesServiceService.CourseStudentCounts().subscribe(data => {
+    //     this.courseData = data; 
+    //     this.filterCourses();
+    //     console.log(this.courseData)
 
-        const chartData = this.courseData.map(course => {
-          return {
-            value: course.EnrolledStudents,
-            name: course.CourseName,
-          };
-        });
+    //     const chartData = this.courseData.map(course => {
+    //       return {
+    //         value: course.EnrolledStudents,
+    //         name: course.CourseName,
+    //       };
+    //     });
 
-      });
+    //   });
 
-    }
+    // }
 
 
 
@@ -241,29 +243,9 @@ this.CourseStudentCounts();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   details(course: Courses) {
+
+    console.log(course)
 
     let tempDirection: Direction;
     if (localStorage.getItem('isRtl') === 'true') {
@@ -392,7 +374,7 @@ refreshPage(): void {
 
 
 editCall(course: Courses) {
-  this.id = course.CourseId;
+  this.id = course.courseId;
   console.log(course)
 
   let tempDirection: Direction;
@@ -451,7 +433,7 @@ editCall(course: Courses) {
 
 deleteItem(course: Courses) {
 
-  this.id = course.CourseId;
+  this.id = course.courseId;
 
   console.log('delete item', this.id)
   let tempDirection: Direction;

@@ -103,15 +103,7 @@ export class TeachersService extends UnsubscribeOnDestroyAdapter {
         next: (data) => {
           this.dialogData = teachers;
 
-
-          //insert activitylog
-          this.authService.addActivityLog(
-            this.authService.currentUserValue.id,
-           'Teacher Adding',
-           `Teacher ${teachers.firstName} ${teachers.lastName} is added`);
-
-
-
+        this.getAllTeacherss();
 
           Swal.fire('Teacher added');
         },
@@ -137,38 +129,29 @@ export class TeachersService extends UnsubscribeOnDestroyAdapter {
           next: (data) => {
             this.dialogData = teacher;
 
-            //activity log
-            this.authService.addActivityLog(
-              this.authService.currentUserValue.id,
-             'Teacher Update',
-             `Teacher ${teacher.firstName} ${teacher.lastName} is updated. Teacher Nr: ${id}`);
-
-
+            this.getAllTeacherss();
+            Swal.fire('Teacher updated');
+           
           },
           error: (error: HttpErrorResponse) => {
             console.error('Error:', error);
+            Swal.fire('Teacher update is not successful. Check email address. ');
 
           },
         });
   }
 
 
-  deleteTeachers(id: number, teacher:any): void {
+  deleteTeachers(id: number): void {
 
 
     this.httpClient.delete(`${this.API_URL}/ ${id}`)
         .subscribe({
-          next: (data) => {
+          next: () => {
             console.log('Deleted:' +id);
 
-            //activity log
-            this.authService.addActivityLog(
-              this.authService.currentUserValue.id,
-             'Teacher Delete',
-             `Teacher  ${teacher.firstName} ${teacher.lastName}  is deleted. Teacher Nr: ${id}`);
-
-
-
+            this.getAllTeacherss();
+            Swal.fire('Teacher deleted');
           },
           error: (error: HttpErrorResponse) => {
             console.error('Error:', error);
